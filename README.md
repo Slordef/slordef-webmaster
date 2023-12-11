@@ -1,2 +1,2 @@
-# https://slordef-webmastering.ch
+# https://slordef-webmaster.ch
 Porfolio Website
