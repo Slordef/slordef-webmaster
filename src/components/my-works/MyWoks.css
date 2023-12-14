@@ -1,0 +1,9 @@
+#my-works {
+    background-color: #f1f0d8;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #8b7049;
+}

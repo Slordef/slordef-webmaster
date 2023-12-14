@@ -1,0 +1,15 @@
+#project {
+    margin: 0;
+    padding: 50px;
+    /*background-image: linear-gradient(to right bottom, #000000, #865200);*/
+    background-color: #1e1e1e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#project .content {
+    max-width: 1080px;
+    width: 100%;
+}
