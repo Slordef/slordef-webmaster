@@ -4,6 +4,7 @@ import WorkSoulsGathering from './works/soulsgathering/workSoulsGathering.tsx';
 import WorkOneManStudioForGames from './works/onemanstudioforgames/workOneManStudioForGames.tsx';
 import WorkSadnessOfValor from './works/sadnessofvalor/workSadnessOfValor.tsx';
 import WorkResilioTech from './works/Resilio/workResilioTech.tsx';
+import WorkSloStream from './works/slo-stream/workSloStream.tsx';
 
 export const projects = [
   <WorkResilioTech />,
@@ -12,4 +13,5 @@ export const projects = [
   <WorkSqual />,
   <WorkVaalnor />,
   <WorkSoulsGathering />,
+  <WorkSloStream />,
 ];
