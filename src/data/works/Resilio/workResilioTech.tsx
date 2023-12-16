@@ -10,7 +10,7 @@ const WorkResilioTech = () => {
           Je suis actuellement le CTO de <a href="https://resilio-solutions.com">Resilio SA</a>, une société
           d'évaluation d'impact environnemental. Nous développons des outils d'évaluation d'impact environnemental pour
           les entreprises et les particuliers. Nous avons développé une application web qui permet aux entreprises de
-          calculer leur empreinte carbone et de la réduire.
+          calculer leur empreinte et de la réduire.
           <br />
           <br />
           Nous avons également développé une application de recherche d'impact sur les équipements ou de génération de
