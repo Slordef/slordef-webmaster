@@ -20,6 +20,6 @@ RUN mkdir ".next"
 
 COPY --from=builder /app/.next ./.next
 
-RUN npm install --only=production
+RUN npm install --omit=dev
 
 CMD ["npm", "start"]
