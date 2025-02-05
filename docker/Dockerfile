@@ -1,4 +1,4 @@
-FROM node:22-alpine as builder
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
@@ -16,7 +16,9 @@ WORKDIR /app
 
 COPY --from=builder /app/package.json .
 
-COPY --from=builder /app/dist .
+RUN mkdir ".next"
+
+COPY --from=builder /app/.next ./.next
 
 RUN npm install --only=production
 

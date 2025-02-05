@@ -1,6 +1,6 @@
 networks:
-  slordefweb:
-    driver: bridge
+    slordefweb:
+        driver: bridge
 
 services:
     web:

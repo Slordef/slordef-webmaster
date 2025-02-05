@@ -1,4 +1,5 @@
 import './workSadnessOfValor.css';
+import Image from 'next/image';
 
 const WorkSadnessOfValor = () => {
   return (
@@ -10,7 +11,7 @@ const WorkSadnessOfValor = () => {
           Sadness of Valor est un jeu vidéo de type RTS (Real Time Strategy) développé par mes soins. Il est disponible
           sur Steam depuis le 30 décembre 2022.
           <br />
-          Il est pour moi l'aboutissement de deux années de travail, de passion et est le premier jeu vidéo que je
+          Il est pour moi l&#39;aboutissement de deux années de travail, de passion et est le premier jeu vidéo que je
           développe. Je suis plutôt fier du chemin parcouru.
           <br />
           <br />
@@ -20,7 +21,7 @@ const WorkSadnessOfValor = () => {
       </div>
       <div className={'image'}>
         <a href="https://sadnessofvalor.com">
-          <img src={'/works/sadnessofvalor.png'} alt={'Sadness of Valor'} />
+          <Image src={'/works/sadnessofvalor.png'} alt={'Sadness of Valor'} />
         </a>
       </div>
     </div>
