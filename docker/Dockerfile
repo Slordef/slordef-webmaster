@@ -15,6 +15,7 @@ FROM node:22-alpine
 WORKDIR /app
 
 COPY --from=builder /app/package.json .
+COPY --from=builder /app/public ./public
 
 RUN mkdir ".next"
 
