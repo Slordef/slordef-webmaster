@@ -10,21 +10,17 @@ export function Services() {
     <section id="services">
       <div className="container">
         <h2>{t('services.title')}</h2>
-        <p className="subtitle">
-          {t('services.subtitle')}
-        </p>
+        <p className="subtitle">{t('services.subtitle')}</p>
         <div className="services-grid">
           <div className="service-card">
             <div className="service-header">
               <i className="fa-solid fa-clock"></i>
               <h3>{t('services.fractional.title')}</h3>
             </div>
-            <p className="description">
-              {t('services.fractional.description')}
-            </p>
+            <p className="description">{t('services.fractional.description')}</p>
             <ul>
-              {t('services.fractional.items.map')((item, index) => (
-                <li key={index}>{item}</li>
+              {t('services.fractional.items', (item, index) => (
+                <li key={`fractional_${index}`}>{item}</li>
               ))}
             </ul>
           </div>
@@ -34,12 +30,10 @@ export function Services() {
               <i className="fa-solid fa-magnifying-glass-chart"></i>
               <h3>{t('services.audits.title')}</h3>
             </div>
-            <p className="description">
-              {t('services.audits.description')}
-            </p>
+            <p className="description">{t('services.audits.description')}</p>
             <ul>
-              {t('services.audits.items.map')((item, index) => (
-                <li key={index}>{item}</li>
+              {t('services.audits.items', (item, index) => (
+                <li key={`audits_${index}`}>{item}</li>
               ))}
             </ul>
           </div>
@@ -49,12 +43,10 @@ export function Services() {
               <i className="fa-solid fa-rocket"></i>
               <h3>{t('services.missions.title')}</h3>
             </div>
-            <p className="description">
-              {t('services.missions.description')}
-            </p>
+            <p className="description">{t('services.missions.description')}</p>
             <ul>
-              {t('services.missions.items.map')((item, index) => (
-                <li key={index}>{item}</li>
+              {t('services.missions.items', (item, index) => (
+                <li key={`missions_${index}`}>{item}</li>
               ))}
             </ul>
           </div>

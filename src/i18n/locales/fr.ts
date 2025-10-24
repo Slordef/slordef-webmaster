@@ -1,4 +1,4 @@
-import type { Translations } from "./en";
+import { Translations } from '@/i18n/context';
 
 export const fr: Translations = {
   common: {

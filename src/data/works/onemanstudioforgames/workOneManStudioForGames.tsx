@@ -1,3 +1,5 @@
+"use client";
+
 import './workOneManStudioForGames.css';
 import Image from 'next/image';
 import { useI18n } from '@/i18n/context';

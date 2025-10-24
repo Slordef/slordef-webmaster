@@ -1,4 +1,6 @@
-export const en = {
+import { Translations } from '@/i18n/context';
+
+export const en: Translations = {
   common: {
     siteTitle: "Slordef - CTO & CISO Freelance",
     readMore: "Read More",
@@ -214,5 +216,3 @@ export const en = {
     connectWithMe: "Connect With Me",
   },
 };
-
-export type Translations = typeof en;

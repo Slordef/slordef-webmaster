@@ -1,3 +1,5 @@
+"use client";
+
 import './workVaalnor.css';
 import Image from 'next/image';
 import { useI18n } from '@/i18n/context';

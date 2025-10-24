@@ -18,13 +18,13 @@ export function Experience() {
               <h3>{t('experience.resilio.position')}</h3>
               <h4>{t('experience.resilio.company')}</h4>
               <ul>
-                {t('experience.resilio.items.map')((item, index) => (
-                  <li key={index}>{item}</li>
+                {t('experience.resilio.items', (item, index) => (
+                  <li key={`resilio_item_${index}`}>{item}</li>
                 ))}
               </ul>
               <div className="tech-stack">
-                {t('experience.resilio.techStack.map')((tech, index) => (
-                  <span key={index}>{tech}</span>
+                {t('experience.resilio.techStack', (tech, index) => (
+                  <span key={`resilio_stack_${index}`}>{tech}</span>
                 ))}
               </div>
             </div>
@@ -37,8 +37,8 @@ export function Experience() {
               <h3>{t('experience.freelance.position')}</h3>
               <h4>{t('experience.freelance.company')}</h4>
               <ul>
-                {t('experience.freelance.items.map')((item, index) => (
-                  <li key={index}>{item}</li>
+                {t('experience.freelance.items', (item, index) => (
+                  <li key={`freelance_item_${index}`}>{item}</li>
                 ))}
               </ul>
             </div>

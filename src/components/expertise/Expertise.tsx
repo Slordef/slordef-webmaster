@@ -17,8 +17,8 @@ export function Expertise() {
             </div>
             <h3>{t('expertise.architecture.title')}</h3>
             <ul>
-              {t('expertise.architecture.items.map')((item, index) => (
-                <li key={index}>{item}</li>
+              {t('expertise.architecture.items', (item, index) => (
+                <li key={`architecture_${index}`}>{item}</li>
               ))}
             </ul>
           </div>
@@ -29,8 +29,8 @@ export function Expertise() {
             </div>
             <h3>{t('expertise.security.title')}</h3>
             <ul>
-              {t('expertise.security.items.map')((item, index) => (
-                <li key={index}>{item}</li>
+              {t('expertise.security.items', (item, index) => (
+                <li key={`security_${index}`}>{item}</li>
               ))}
             </ul>
           </div>
@@ -41,8 +41,8 @@ export function Expertise() {
             </div>
             <h3>{t('expertise.leadership.title')}</h3>
             <ul>
-              {t('expertise.leadership.items.map')((item, index) => (
-                <li key={index}>{item}</li>
+              {t('expertise.leadership.items', (item, index) => (
+                <li key={`leadership_${index}`}>{item}</li>
               ))}
             </ul>
           </div>
@@ -53,8 +53,8 @@ export function Expertise() {
             </div>
             <h3>{t('expertise.impact.title')}</h3>
             <ul>
-              {t('expertise.impact.items.map')((item, index) => (
-                <li key={index}>{item}</li>
+              {t('expertise.impact.items', (item, index) => (
+                <li key={`impact_${index}`}>{item}</li>
               ))}
             </ul>
           </div>
