@@ -9,9 +9,9 @@ const WorkSloStream = () => {
   return (
     <div className={'work_slo_stream'}>
       <div className={'texts'}>
-        <h2>{t('works.projects.vaalnor.title')}</h2>
-        <h3>{t('works.projects.vaalnor.title')}</h3>
-        <p>{t('works.projects.vaalnor.title', {
+        <h2>{t('works.projects.stream.title')}</h2>
+        <h3>{t('works.projects.stream.subtitle')}</h3>
+        <p>{t('works.projects.stream.description', {
           break: () => <br />,
           link: (value) => <a href={'https://slo-stream.com'}>{value}</a>
         })}

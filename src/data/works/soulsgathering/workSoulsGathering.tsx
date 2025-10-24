@@ -9,9 +9,9 @@ const WorkSoulsGathering = () => {
   return (
     <div className={'work_souls_gathering'}>
       <div className={'texts'}>
-        <h2>{t('works.projects.vaalnor.title')}</h2>
-        <h3>{t('works.projects.vaalnor.subtitle')}</h3>
-        <p>{t('works.projects.vaalnor.description', {
+        <h2>{t('works.projects.soulsGathering.title')}</h2>
+        <h3>{t('works.projects.soulsGathering.subtitle')}</h3>
+        <p>{t('works.projects.soulsGathering.description', {
           break: () => <br />,
           link: (value) => <a href="https://soulsgathering.com">{value}</a>
         })}
