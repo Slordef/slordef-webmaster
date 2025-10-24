@@ -1,19 +1,18 @@
 import './workOneManStudioForGames.css';
 import Image from 'next/image';
+import { useI18n } from '@/i18n/context';
 
 const WorkOneManStudioForGames = () => {
+  const { t } = useI18n();
   return (
     <div className={'work_one_man_studio_for_games'}>
       <div className={'texts'}>
-        <h2>One Man Studio For Games</h2>
-        <h3>Studio de jeu vidéo indépendant</h3>
-        <p>
-          Depuis mon enfance, je suis passionné par les jeux vidéo. J&#39;ai toujours voulu créer les miens. C&#39;est
-          pourquoi je me suis lancé dans la création de mon propre studio de jeu vidéo indépendant pour y développer mes
-          propres envies.
-          <br />
-          <br />
-          <a href="https://onemanstudioforgames.com">One Man Studio For Games</a> en est le résultat.
+        <h2>{t('works.projects.oneManStudioForGames.title')}</h2>
+        <h3>{t('works.projects.oneManStudioForGames.subtitle')}</h3>
+        <p>{t('works.projects.oneManStudioForGames.description',{
+          break: () => <br />,
+          link: (value) => <a href="https://onemanstudioforgames.com">{value}</a>
+        })}
         </p>
       </div>
       <div className={'image'}>

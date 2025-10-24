@@ -9,14 +9,14 @@ const LastWords = () => {
   return (
     <section id={'last-words'}>
       <div className="container">
-        <h2>{t.lastWords.title}</h2>
+        <h2>{t('lastWords.title')}</h2>
         <p className="cta-text">
-          {t.lastWords.description}
+          {t('lastWords.description')}
         </p>
         <div className="cta-buttons">
           <a href="#contact" className="btn-primary">
             <i className="fa-solid fa-envelope"></i>
-            {t.lastWords.getInTouch}
+            {t('lastWords.getInTouch')}
           </a>
           <a
             href="https://www.linkedin.com/in/maximilien-v-576625172/"
@@ -25,7 +25,7 @@ const LastWords = () => {
             className="btn-secondary"
           >
             <i className="fa-brands fa-linkedin"></i>
-            {t.lastWords.connectLinkedIn}
+            {t('lastWords.connectLinkedIn')}
           </a>
         </div>
       </div>

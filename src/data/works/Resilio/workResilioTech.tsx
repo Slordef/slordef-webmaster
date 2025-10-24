@@ -1,21 +1,19 @@
 import './workResilio.css';
 import Image from 'next/image';
+import { useI18n } from '@/i18n/context';
 
 const WorkResilioTech = () => {
+  const { t } = useI18n();
   return (
     <div className={'work_resilio'}>
       <div className={'texts'}>
-        <h2>Resilio Tech et Resilio DB</h2>
+        <h2>{t('works.projects.resilioTech.title')}</h2>
         <h3></h3>
         <p>
-          Je suis actuellement le CTO de <a href="https://resilio-solutions.com">Resilio SA</a>, une société
-          d&#39;évaluation d&#39;impact environnemental. Nous développons des outils d&#39;évaluation d&#39;impact
-          environnemental pour les entreprises et les particuliers. Nous avons développé une application web qui permet
-          aux entreprises de calculer leur empreinte et de la réduire.
-          <br />
-          <br />
-          Nous avons également développé une application de recherche d&#39;impact sur les équipements ou de génération
-          de rapports d&#39;impact environnemental sur des configuration d&#39;équipement.
+          {t('works.projects.resilioTech.description', {
+            link: (value) => <a href="https://resilio-solutions.com">{value}</a>,
+            break: () => <><br /><br /></>
+          })}
         </p>
       </div>
       <div className={'image'}>

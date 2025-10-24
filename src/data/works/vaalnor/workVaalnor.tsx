@@ -1,22 +1,19 @@
 import './workVaalnor.css';
 import Image from 'next/image';
+import { useI18n } from '@/i18n/context';
 
 const WorkVaalnor = () => {
+  const { t } = useI18n();
   return (
     <div className={'work_vaalnor'}>
       <div className={'texts'}>
-        <h2>Vaalnor</h2>
-        <h3>Groupe de musique</h3>
+        <h2>{t('works.projects.vaalnor.title')}</h2>
+        <h3>{t('works.projects.vaalnor.subtitle')}</h3>
         <p>
-          En 2009, un groupe de musique a vu le jour : <a href="https://vaalnor.com">Vaalnor</a>.
-          <br />
-          J&#39;en suis le batteur et compositeur.
-          <br />
-          <br />
-          Nous avons sorti un album en 2014, avec plusieurs concerts à notre actif.
-          <br />
-          <br />
-          Si vous êtes amateur de metal, n&#39;hésitez pas à nous écouter !
+          {t('works.projects.vaalnor.description', {
+            break: () => <br />,
+            link: (value) => <a href="https://vaalnor.com">{value}</a>,
+          })}
         </p>
       </div>
       <div className={'image'}>

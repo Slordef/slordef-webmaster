@@ -9,15 +9,15 @@ export function Expertise() {
   return (
     <section id="expertise">
       <div className="container">
-        <h2>{t.expertise.title}</h2>
+        <h2>{t('expertise.title')}</h2>
         <div className="expertise-grid">
           <div className="expertise-card">
             <div className="icon">
               <i className="fa-solid fa-code"></i>
             </div>
-            <h3>{t.expertise.architecture.title}</h3>
+            <h3>{t('expertise.architecture.title')}</h3>
             <ul>
-              {t.expertise.architecture.items.map((item, index) => (
+              {t('expertise.architecture.items.map')((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>
@@ -27,9 +27,9 @@ export function Expertise() {
             <div className="icon">
               <i className="fa-solid fa-shield-halved"></i>
             </div>
-            <h3>{t.expertise.security.title}</h3>
+            <h3>{t('expertise.security.title')}</h3>
             <ul>
-              {t.expertise.security.items.map((item, index) => (
+              {t('expertise.security.items.map')((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>
@@ -39,9 +39,9 @@ export function Expertise() {
             <div className="icon">
               <i className="fa-solid fa-users"></i>
             </div>
-            <h3>{t.expertise.leadership.title}</h3>
+            <h3>{t('expertise.leadership.title')}</h3>
             <ul>
-              {t.expertise.leadership.items.map((item, index) => (
+              {t('expertise.leadership.items.map')((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>
@@ -51,9 +51,9 @@ export function Expertise() {
             <div className="icon">
               <i className="fa-solid fa-leaf"></i>
             </div>
-            <h3>{t.expertise.impact.title}</h3>
+            <h3>{t('expertise.impact.title')}</h3>
             <ul>
-              {t.expertise.impact.items.map((item, index) => (
+              {t('expertise.impact.items.map')((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>

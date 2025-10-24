@@ -9,9 +9,9 @@ export function MyWorks() {
   return (
     <section id={'my-works'}>
       <div className="container">
-        <h2>{t.works.title}</h2>
+        <h2>{t('works.title')}</h2>
         <p className="intro">
-          {t.works.subtitle}
+          {t('works.subtitle')}
         </p>
       </div>
     </section>

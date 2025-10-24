@@ -9,17 +9,17 @@ export function About() {
   return (
     <section id="about">
       <div className="container">
-        <h2>{t.about.title}</h2>
+        <h2>{t('about.title')}</h2>
         <div className="content">
           <div className="value-proposition">
             <p className="intro">
-              {t.about.intro}
+              {t('about.intro')}
             </p>
             <p className="description">
-              {t.about.description}
+              {t('about.description')}
             </p>
             <p className="approach">
-              {t.about.approach}
+              {t('about.approach')}
             </p>
           </div>
         </div>

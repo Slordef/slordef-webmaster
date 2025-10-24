@@ -9,9 +9,9 @@ const Contact = () => {
   return (
     <section id={'contact'}>
       <div className="container">
-        <h2>{t.contact.title}</h2>
+        <h2>{t('contact.title')}</h2>
         <p className="intro">
-          {t.contact.intro}
+          {t('contact.intro')}
         </p>
 
         <div className="contact-methods">
@@ -19,7 +19,7 @@ const Contact = () => {
             <div className="icon">
               <i className="fa-solid fa-envelope"></i>
             </div>
-            <h3>{t.contact.email}</h3>
+            <h3>{t('contact.email')}</h3>
             <a href="mailto:contact@slordef-webmaster.ch">
               contact@slordef-webmaster.ch
             </a>
@@ -29,21 +29,21 @@ const Contact = () => {
             <div className="icon">
               <i className="fa-solid fa-location-dot"></i>
             </div>
-            <h3>{t.contact.location}</h3>
-            <p>{t.contact.locationValue}</p>
+            <h3>{t('contact.location')}</h3>
+            <p>{t('contact.locationValue')}</p>
           </div>
 
           <div className="contact-card">
             <div className="icon">
               <i className="fa-solid fa-clock"></i>
             </div>
-            <h3>{t.contact.availability}</h3>
-            <p>{t.contact.availabilityValue}</p>
+            <h3>{t('contact.availability')}</h3>
+            <p>{t('contact.availabilityValue')}</p>
           </div>
         </div>
 
         <div className="social-section">
-          <h3>{t.contact.connectWithMe}</h3>
+          <h3>{t('contact.connectWithMe')}</h3>
           <div className="socials">
             <a
               href="https://www.linkedin.com/in/maximilien-v-576625172/"
@@ -81,8 +81,8 @@ const Contact = () => {
         </div>
 
         <footer className="footer">
-          <p>&copy; {new Date().getFullYear()} Slordef. {t.common.allRightsReserved}</p>
-          <p className="tagline">{t.common.builtWithPassion}</p>
+          <p>&copy; {new Date().getFullYear()} Slordef. {t('common.allRightsReserved')}</p>
+          <p className="tagline">{t('common.builtWithPassion')}</p>
         </footer>
       </div>
     </section>

@@ -25,13 +25,13 @@ export function Navigation() {
   }, []);
 
   const navLinks = [
-    { href: "#home", label: t.nav.home },
-    { href: "#about", label: t.nav.about },
-    { href: "#expertise", label: t.nav.expertise },
-    { href: "#services", label: t.nav.services },
-    { href: "#experience", label: t.nav.experience },
-    { href: "#my-works", label: t.nav.works },
-    { href: "#contact", label: t.nav.contact },
+    { href: "#home", label: t('nav.home') },
+    { href: "#about", label: t('nav.about') },
+    { href: "#expertise", label: t('nav.expertise') },
+    { href: "#services", label: t('nav.services') },
+    { href: "#experience", label: t('nav.experience') },
+    { href: "#my-works", label: t('nav.works') },
+    { href: "#contact", label: t('nav.contact') },
   ];
 
   const handleLinkClick = () => {

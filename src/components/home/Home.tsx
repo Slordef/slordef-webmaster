@@ -9,10 +9,10 @@ export function Home() {
 
   return (
     <section id={"home"}>
-      <h1>{t.home.title}</h1>
-      <h2>{t.home.subtitle}</h2>
-      <h3>{t.home.tagline}</h3>
-      <p className="experience">{t.home.experience}</p>
+      <h1>{t('home.title')}</h1>
+      <h2>{t('home.subtitle')}</h2>
+      <h3>{t('home.tagline')}</h3>
+      <p className="experience">{t('home.experience')}</p>
       <div className="socials">
         <a
           href="https://www.linkedin.com/in/maximilien-v-576625172/"

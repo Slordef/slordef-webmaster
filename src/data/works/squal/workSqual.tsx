@@ -1,19 +1,18 @@
 import './workSqual.css';
 import Image from 'next/image';
+import { useI18n } from '@/i18n/context';
 
 const WorkSqual = () => {
+  const { t } = useI18n();
   return (
     <div className={'work_squal'}>
       <div className={'texts'}>
-        <h2>Squal</h2>
-        <h3>Site vitrine pour une illustratrice</h3>
-        <p>
-          Afin de mettre en avant les illustrations de <a href="https://squal.ch">Squal</a>, j&#39;ai réalisé un site
-          vitrine simple et épuré. Le site est responsive et s&#39;adapte à tous les écrans. Il est également optimisé
-          pour le référencement naturel.
-          <br />
-          <br />
-          Il met en avant les illustrations de l&#39;artiste et permet de la contacter facilement.
+        <h2>{t('works.projects.squal.title')}</h2>
+        <h3>{t('works.projects.squal.subtitle')}</h3>
+        <p>{t('works.projects.squal.description', {
+          link: (value) => <a href="https://squal.ch">{value}</a>,
+          break: () => <br />
+        })}
         </p>
       </div>
       <div className={'image'}>

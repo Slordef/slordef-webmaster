@@ -135,6 +135,51 @@ export const en = {
   works: {
     title: "Selected Projects",
     subtitle: "A showcase of technical projects spanning web development, game development, and system architecture. Each project demonstrates practical application of modern technologies and best practices.",
+    projects: {
+      resilioTech: {
+        title: 'Resilio Tech and Resilio DB',
+        subtitle: '',
+        description:
+          'I am currently the CTO of {{ link(Resilio SA) }}, a company specialized in environmental impact assessment. We develop environmental impact assessment tools for businesses and individuals. We built a web application that helps companies calculate and reduce their footprint.{{ break() }}We also developed a research application to analyze the environmental impact of equipment or to generate impact reports based on specific configurations.',
+      },
+      sadnessOfValor: {
+        title: 'Sadness of Valor',
+        subtitle: 'Video game available on Steam',
+        description:
+          'Sadness of Valor is a Real-Time Strategy (RTS) video game developed by myself. It has been available on Steam since December 30, 2022.{{ break() }}It represents two years of work and passion, and it is the first video game I have ever developed. I am quite proud of the journey so far.{{ break() }}{{ break() }}You can learn more about {{ link(Sadness of Valor) }} on its official website or directly on Steam.',
+      },
+      oneManStudioForGames: {
+        title: 'One Man Studio For Games',
+        subtitle: 'Independent video game studio',
+        description:
+          'Since childhood, I have been passionate about video games and always wanted to create my own. That is why I founded my own independent video game studio to bring my ideas to life.{{ break() }}{{ break() }}{{ link(One Man Studio For Games) }} is the result of that ambition.',
+      },
+      squal: {
+        title: 'Squal',
+        subtitle: 'Portfolio website for an illustrator',
+        description:
+          'To showcase the work of {{ link(Squal) }}, I designed a clean and minimalist portfolio website. The site is fully responsive and adapts to any screen size. It is also optimized for search engine visibility.{{ break() }}{{ break() }}It highlights the artist’s illustrations and makes it easy to get in touch.',
+      },
+      vaalnor: {
+        title: 'Vaalnor',
+        subtitle: 'Music band',
+        description:
+          'In 2009, a metal band was born: {{ link(Vaalnor) }}.{{ break() }}I am the drummer and composer of the group.{{ break() }}{{ break() }}We released an album in 2014 and performed multiple live shows.{{ break() }}{{ break() }}If you are a metal enthusiast, feel free to give us a listen!',
+      },
+      soulsGathering: {
+        title: 'Souls Gathering',
+        subtitle: 'Solo music project',
+        description:
+          'Music has been a passion passed down through generations in my family. I had the opportunity to learn piano, guitar, and drums.{{ break() }}It was only natural that I started composing music. I mainly compose music for video games, films, and metal compositions.{{ break() }}{{ break() }}I created my own solo music project, {{ link(Souls Gathering) }}, to share my creations and inspirations within the metal scene.',
+      },
+      stream: {
+        title: 'Slo-Stream',
+        subtitle: 'Experimental streaming platform',
+        description:
+          "Slo-Stream is a personal project designed to test game streaming technologies. It is fully developed in TypeScript and features a Vue.js user interface.{{ break() }}{{ break() }}It is non-commercial and used purely for testing and experimentation. However, if the project interests you, you can find it at {{ link(slo-stream.com) }}.",
+      },
+    }
+
   },
   sideProjects: {
     title: "Side Projects & Passions",

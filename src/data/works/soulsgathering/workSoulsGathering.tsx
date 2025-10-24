@@ -1,22 +1,18 @@
 import './workSoulsGathering.css';
 import Image from 'next/image';
+import { useI18n } from '@/i18n/context';
 
 const WorkSoulsGathering = () => {
+  const { t } = useI18n();
   return (
     <div className={'work_souls_gathering'}>
       <div className={'texts'}>
-        <h2>Souls Gathering</h2>
-        <h3>Projet solo de musique</h3>
-        <p>
-          Passionné de musique de génération en génération, j&#39;ai eu la chance de pouvoir apprendre le piano, la
-          guitare et la batterie.
-          <br />
-          Il est donc tout naturel que je me sois lancé dans la composition de musique. Je compose principalement des
-          musiques de jeux vidéos pour mes jeux, des musiques de films, et des musiques Metal.
-          <br />
-          <br />
-          J&#39;ai donc créé mon propre projet de musique solo, <a href="https://soulsgathering.com">Souls Gathering</a>
-          , pour y partager mes créations et mes inspirations coté Metal.
+        <h2>{t('works.projects.vaalnor.title')}</h2>
+        <h3>{t('works.projects.vaalnor.subtitle')}</h3>
+        <p>{t('works.projects.vaalnor.description', {
+          break: () => <br />,
+          link: (value) => <a href="https://soulsgathering.com">{value}</a>
+        })}
         </p>
       </div>
       <div className={'image'}>
