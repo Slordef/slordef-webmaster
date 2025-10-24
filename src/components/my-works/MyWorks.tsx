@@ -1,11 +1,19 @@
+"use client";
+
 import './MyWoks.css';
+import { useI18n } from '@/i18n/context';
 
 export function MyWorks() {
+  const { t } = useI18n();
+
   return (
     <section id={'my-works'}>
-      <h2>Autodidacte et perfectionniste</h2>
-      <p>Passionné par le développement, j&#39;aime apprendre de nouvelles choses.</p>
-      <p>Je suis autodidacte et j&#39;aime me perfectionner dans ce que je fais.</p>
+      <div className="container">
+        <h2>{t.works.title}</h2>
+        <p className="intro">
+          {t.works.subtitle}
+        </p>
+      </div>
     </section>
   );
 }

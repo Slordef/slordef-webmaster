@@ -1,9 +1,109 @@
 #last-words {
-    background-color: #f1f0d8;
-    padding: 50px;
+    background: linear-gradient(135deg, #f4a460 0%, #9b7d68 100%);
+    padding: 100px 20px;
+    color: #fff;
+}
+
+#last-words .container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#last-words h2 {
+    font-size: 2.8em;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#last-words .cta-text {
+    font-size: 1.25em;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#last-words .cta-buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    gap: 20px;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+#last-words .btn-primary,
+#last-words .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#last-words .btn-primary {
+    background-color: #fff;
     color: #8b7049;
+}
+
+#last-words .btn-primary:hover {
+    background-color: #f1f0d8;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+#last-words .btn-secondary {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+#last-words .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+#last-words i {
+    font-size: 1.2em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #last-words {
+        padding: 70px 20px;
+    }
+
+    #last-words h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    #last-words .cta-text {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+    }
+
+    #last-words .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #last-words .btn-primary,
+    #last-words .btn-secondary {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+        font-size: 1em;
+    }
 }

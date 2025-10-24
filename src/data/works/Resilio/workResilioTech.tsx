@@ -20,10 +20,10 @@ const WorkResilioTech = () => {
       </div>
       <div className={'image'}>
         <a href="https://app.resilio.tech">
-          <Image src={'/works/resilio-tech.png'} alt={'Resilio Tech'} />
+          <Image src={'/works/resilio-tech.png'} alt={'Resilio Tech'} width={350} height={197} />
         </a>
         <a href="https://db.resilio.tech">
-          <Image src={'/works/resilio-db.png'} alt={'Resilio DB'} />
+          <Image src={'/works/resilio-db.png'} alt={'Resilio DB'} width={350} height={197} />
         </a>
       </div>
     </div>

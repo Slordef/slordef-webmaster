@@ -18,7 +18,7 @@ const WorkSqual = () => {
       </div>
       <div className={'image'}>
         <a href="https://squal.ch">
-          <Image src={'/works/squal.ch.png'} alt={'Squal.ch'} />
+          <Image src={'/works/squal.ch.png'} alt={'Squal.ch'} width={350} height={197} />
         </a>
       </div>
     </div>

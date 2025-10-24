@@ -21,7 +21,7 @@ const WorkVaalnor = () => {
       </div>
       <div className={'image'}>
         <a href="https://vaalnor.com">
-          <Image src={'/works/Vaalnor.jpg'} alt={'Vaalnor'} />
+          <Image src={'/works/Vaalnor.jpg'} alt={'Vaalnor'} width={350} height={197} />
         </a>
       </div>
     </div>

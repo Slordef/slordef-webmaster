@@ -18,7 +18,7 @@ const WorkOneManStudioForGames = () => {
       </div>
       <div className={'image'}>
         <a href="https://onemanstudioforgames.com">
-          <Image src={'/works/OneManStudio.png'} alt={'One Man Studio For Games'} />
+          <Image src={'/works/OneManStudio.png'} alt={'One Man Studio For Games'} width={350} height={197} />
         </a>
       </div>
     </div>

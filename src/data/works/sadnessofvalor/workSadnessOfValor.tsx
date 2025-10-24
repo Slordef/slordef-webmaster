@@ -21,7 +21,7 @@ const WorkSadnessOfValor = () => {
       </div>
       <div className={'image'}>
         <a href="https://sadnessofvalor.com">
-          <Image src={'/works/sadnessofvalor.png'} alt={'Sadness of Valor'} />
+          <Image src={'/works/sadnessofvalor.png'} alt={'Sadness of Valor'} width={350} height={197} />
         </a>
       </div>
     </div>

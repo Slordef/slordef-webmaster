@@ -19,7 +19,7 @@ const WorkSloStream = () => {
       </div>
       <div className={'image'}>
         <a href="https://slo-stream.com">
-          <Image src={'/works/slo-stream.png'} alt={'Slo-Stream'} />
+          <Image src={'/works/slo-stream.png'} alt={'Slo-Stream'} width={350} height={197} />
         </a>
       </div>
     </div>
