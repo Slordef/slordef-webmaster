@@ -3,7 +3,6 @@
 import React, { createContext, useContext, useState, useCallback, useEffect, ReactNode, Fragment } from 'react';
 import { locales, defaultLocale, type Locale,  } from "./locales";
 
-export interface Translations { [K: string]: Translations | string | string[] }
 
 type ReplacementFns = Record<Exclude<string, "map">, (value: string) => ReactNode>;
 type Options = ((value: string, index: number, array: string[]) => ReactNode) | ReplacementFns;

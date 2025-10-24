@@ -1,4 +1,4 @@
-import { Translations } from '@/i18n/context';
+import {Translations} from "@/i18n/locales/index";
 
 export const fr: Translations = {
   common: {

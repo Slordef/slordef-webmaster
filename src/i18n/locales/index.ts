@@ -7,7 +7,8 @@ export const locales = {
 } as const;
 
 export type Locale = keyof typeof locales;
-export type { Translations } from "./en";
+
+export interface Translations { [K: string]: Translations | string | string[] }
 
 export const defaultLocale: Locale = "en";
 export const availableLocales: Locale[] = ["en", "fr"];
