@@ -7,14 +7,18 @@ on:
   workflow_dispatch:
 
 jobs:
-    deploy:
-        runs-on: [self-hosted, production]
-        steps:
-          - name: Checkout
-            uses: actions/checkout@v2
+  deploy:
+    runs-on: [self-hosted, production]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-          - name: Run docker compose build
-            run: docker compose -f docker-compose.yml build
+      - name: Copy environment variables file
+        run: |
+          cp /home/slordef/slordef-webmaster.ch/.env ./.env 
 
-          - name: Run docker compose up
-            run: docker compose -f docker-compose.yml up -d
+      - name: Run docker compose build
+        run: docker compose -f docker-compose.yml build
+
+      - name: Run docker compose up
+        run: docker compose -f docker-compose.yml up -d
