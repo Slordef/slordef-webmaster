@@ -142,43 +142,43 @@ export const fr: Translations = {
         title: 'Resilio Tech et Resilio DB',
         subtitle: '',
         description:
-          'Je suis actuellement le CTO de {{ link(Resilio SA) }}, une société d&#39;évaluation d&#39;impact environnemental. Nous développons des outils d&#39;évaluation d&#39;impact environnemental pour les entreprises et les particuliers. Nous avons développé une application web qui permet aux entreprises de calculer leur empreinte et de la réduire.{{ break() }}Nous avons également développé une application de recherche d&#39;impact sur les équipements ou de génération de rapports d&#39;impact environnemental sur des configuration d&#39;équipement.',
+          'Je suis actuellement le CTO de {{ link(Resilio SA) }}, une société d\'évaluation d\'impact environnemental. Nous développons des outils d\'évaluation d\'impact environnemental pour les entreprises et les particuliers. Nous avons développé une application web qui permet aux entreprises de calculer leur empreinte et de la réduire.{{ break() }}Nous avons également développé une application de recherche d\'impact sur les équipements ou de génération de rapports d\'impact environnemental sur des configuration d\'équipement.',
       },
       sadnessOfValor: {
         title: 'Sadness of Valor',
         subtitle: 'Jeu vidéo disponible sur Steam',
         description:
-          'Sadness of Valor est un jeu vidéo de type RTS (Real Time Strategy) développé par mes soins. Il est disponible sur Steam depuis le 30 décembre 2022.{{ break() }}Il est pour moi l&#39;aboutissement de deux années de travail, de passion et est le premier jeu vidéo que je développe. Je suis plutôt fier du chemin parcouru.{{ break() }}{{ break() }}Je vous invite à en savoir plus sur {{ link(Sadness of Valor) }} via son site officiel ou sur Steam directement.',
+          'Sadness of Valor est un jeu vidéo de type RTS (Real Time Strategy) développé par mes soins. Il est disponible sur Steam depuis le 30 décembre 2022.{{ break() }}Il est pour moi l\'aboutissement de deux années de travail, de passion et est le premier jeu vidéo que je développe. Je suis plutôt fier du chemin parcouru.{{ break() }}{{ break() }}Je vous invite à en savoir plus sur {{ link(Sadness of Valor) }} via son site officiel ou sur Steam directement.',
       },
       oneManStudioForGames: {
         title: 'One Man Studio For Games',
         subtitle: 'Studio de jeu vidéo indépendant',
         description:
-          'Depuis mon enfance, je suis passionné par les jeux vidéo. J&#39;ai toujours voulu créer les miens. C&#39;est pourquoi je me suis lancé dans la création de mon propre studio de jeu vidéo indépendant pour y développer mes propres envies.{{ break() }}{{ break() }}{{ link(One Man Studio For Games) }} en est le résultat.',
+          'Depuis mon enfance, je suis passionné par les jeux vidéo. J\'ai toujours voulu créer les miens. C\'est pourquoi je me suis lancé dans la création de mon propre studio de jeu vidéo indépendant pour y développer mes propres envies.{{ break() }}{{ break() }}{{ link(One Man Studio For Games) }} en est le résultat.',
       },
       squal: {
         title: 'Squal',
         subtitle: 'Site vitrine pour une illustratrice',
         description:
-          'Afin de mettre en avant les illustrations de {{ link(Squal) }}, j&#39;ai réalisé un site vitrine simple et épuré. Le site est responsive et s&#39;adapte à tous les écrans. Il est également optimisé pour le référencement naturel.{{ break() }}{{ break() }}Il met en avant les illustrations de l&#39;artiste et permet de la contacter facilement.',
+          'Afin de mettre en avant les illustrations de {{ link(Squal) }}, j\'ai réalisé un site vitrine simple et épuré. Le site est responsive et s\'adapte à tous les écrans. Il est également optimisé pour le référencement naturel.{{ break() }}{{ break() }}Il met en avant les illustrations de l\'artiste et permet de la contacter facilement.',
       },
       vaalnor: {
         title: 'Vaalnor',
         subtitle: 'Groupe de musique',
         description:
-          'En 2009, un groupe de musique a vu le jour : {{ link(Vaalnor) }}.{{ break() }}J&#39;en suis le batteur et compositeur.{{ break() }}{{ break() }}Nous avons sorti un album en 2014, avec plusieurs concerts à notre actif.{{ break() }}{{ break() }}Si vous êtes amateur de metal, n&#39;hésitez pas à nous écouter !',
+          'En 2009, un groupe de musique a vu le jour : {{ link(Vaalnor) }}.{{ break() }}J\'en suis le batteur et compositeur.{{ break() }}{{ break() }}Nous avons sorti un album en 2014, avec plusieurs concerts à notre actif.{{ break() }}{{ break() }}Si vous êtes amateur de metal, n\'hésitez pas à nous écouter !',
       },
       soulsGathering: {
         title: 'Souls Gathering',
         subtitle: 'Projet solo de musique',
         description:
-          'Passionné de musique de génération en génération, j&#39;ai eu la chance de pouvoir apprendre le piano, la guitare et la batterie.{{ break() }}Il est donc tout naturel que je me sois lancé dans la composition de musique. Je compose principalement des musiques de jeux vidéos pour mes jeux, des musiques de films, et des musiques Metal.{{ break() }}{{ break() }}J&#39;ai donc créé mon propre projet de musique solo, {{ link(Souls Gathering) }}, pour y partager mes créations et mes inspirations coté Metal.',
+          'Passionné de musique de génération en génération, j\'ai eu la chance de pouvoir apprendre le piano, la guitare et la batterie.{{ break() }}Il est donc tout naturel que je me sois lancé dans la composition de musique. Je compose principalement des musiques de jeux vidéos pour mes jeux, des musiques de films, et des musiques Metal.{{ break() }}{{ break() }}J\'ai donc créé mon propre projet de musique solo, {{ link(Souls Gathering) }}, pour y partager mes créations et mes inspirations coté Metal.',
       },
       stream: {
         title: 'Slo-Stream',
         subtitle: 'Expérimentation de plateforme de streaming',
         description:
-          "Slo-Stream est un projet personnel qui a pour but de tester les technologies de streaming de jeux vidéo. Il est entièrement développé en TypeScript avec le framework et présente une interface utilisateur en Vue.js.{{ break() }}{{ break() }}Il n&#39;est pas à but lucratif et est uniquement utilisé pour des tests personnels et de l&#39;expérimentation. Malgré tout si le projet vous intéresse vous pouvez le retrouver sur{' '}{{ link(slo-stream.com) }}.",
+          "Slo-Stream est un projet personnel qui a pour but de tester les technologies de streaming de jeux vidéo. Il est entièrement développé en TypeScript avec le framework et présente une interface utilisateur en Vue.js.{{ break() }}{{ break() }}Il n\'est pas à but lucratif et est uniquement utilisé pour des tests personnels et de l\'expérimentation. Malgré tout si le projet vous intéresse vous pouvez le retrouver sur {{ link(slo-stream.com) }}.",
       },
     },
   },
