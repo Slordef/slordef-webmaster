@@ -174,11 +174,17 @@ export const en: Translations = {
         description:
           'Music has been a passion passed down through generations in my family. I had the opportunity to learn piano, guitar, and drums.{{ break() }}It was only natural that I started composing music. I mainly compose music for video games, films, and metal compositions.{{ break() }}{{ break() }}I created my own solo music project, {{ link(Souls Gathering) }}, to share my creations and inspirations within the metal scene.',
       },
-      stream: {
-        title: 'Slo-Stream',
-        subtitle: 'Experimental streaming platform',
+      aurioaTech: {
+        title: 'Aurioa-Tech',
+        subtitle: 'Useful and sustainable tech solutions',
         description:
-          "Slo-Stream is a personal project designed to test game streaming technologies. It is fully developed in TypeScript and features a Vue.js user interface.{{ break() }}{{ break() }}It is non-commercial and used purely for testing and experimentation. However, if the project interests you, you can find it at {{ link(slo-stream.com) }}.",
+          "{{ link(Aurioa-Tech) }} is a company focused on designing useful and sustainable technological solutions. We develop digital tools that simplify everyday life: web applications, business platforms, integrated systems, and custom prototypes.{{ break() }}{{ break() }}With a strong focus on cybersecurity and pragmatic innovation, every project is built with security, reliability, and tangible value at its core.",
+      },
+      nebulaSilva: {
+        title: 'Nebula Silva',
+        subtitle: 'Swiss Atmospheric Black Metal',
+        description:
+          "{{ link(Nebula Silva) }} is a Swiss Atmospheric Black Metal project born in 2018 in Valais. Drawing from the cold intensity of Mgła, the atmospheric depth of Der Weg Einer Freiheit, and the ritual grandeur of Batushka, the duo explores themes of civilizational decay and existential dead ends.{{ break() }}{{ break() }}The project features Slordef on guitar and Nøname on vocals and bass.",
       },
     }
 

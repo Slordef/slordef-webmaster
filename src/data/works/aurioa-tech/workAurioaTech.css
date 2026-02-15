@@ -1,4 +1,4 @@
-.work_slo_stream {
+.work_aurioa_tech {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -7,25 +7,25 @@
     gap: 15px;
 }
 
-.work_slo_stream .texts {
+.work_aurioa_tech .texts {
     flex: 1 1 50%;
 }
 
-.work_slo_stream .image {
+.work_aurioa_tech .image {
     width: 100%;
     max-width: 300px;
 }
 
-.work_slo_stream .image a {
+.work_aurioa_tech .image a {
     display: block;
     transition: transform 0.5s ease-in-out;
 }
 
-.work_slo_stream .image a:hover {
+.work_aurioa_tech .image a:hover {
     transform: scale(1.1);
 }
 
-.work_slo_stream .image img {
+.work_aurioa_tech .image img {
     width: 100%;
     height: 100%;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 1);

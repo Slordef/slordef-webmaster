@@ -174,11 +174,17 @@ export const fr: Translations = {
         description:
           'Passionné de musique de génération en génération, j\'ai eu la chance de pouvoir apprendre le piano, la guitare et la batterie.{{ break() }}Il est donc tout naturel que je me sois lancé dans la composition de musique. Je compose principalement des musiques de jeux vidéos pour mes jeux, des musiques de films, et des musiques Metal.{{ break() }}{{ break() }}J\'ai donc créé mon propre projet de musique solo, {{ link(Souls Gathering) }}, pour y partager mes créations et mes inspirations coté Metal.',
       },
-      stream: {
-        title: 'Slo-Stream',
-        subtitle: 'Expérimentation de plateforme de streaming',
+      aurioaTech: {
+        title: 'Aurioa-Tech',
+        subtitle: 'Solutions technologiques utiles et durables',
         description:
-          "Slo-Stream est un projet personnel qui a pour but de tester les technologies de streaming de jeux vidéo. Il est entièrement développé en TypeScript avec le framework et présente une interface utilisateur en Vue.js.{{ break() }}{{ break() }}Il n\'est pas à but lucratif et est uniquement utilisé pour des tests personnels et de l\'expérimentation. Malgré tout si le projet vous intéresse vous pouvez le retrouver sur {{ link(slo-stream.com) }}.",
+          "{{ link(Aurioa-Tech) }} est une entreprise dédiée à la conception de solutions technologiques utiles et durables. Nous développons des outils numériques qui simplifient le quotidien : applications web, plateformes métier, systèmes intégrés et prototypes sur mesure.{{ break() }}{{ break() }}Avec un accent fort sur la cybersécurité et l\'innovation pragmatique, chaque projet est conçu avec la sécurité, la fiabilité et la valeur tangible au cœur de nos préoccupations.",
+      },
+      nebulaSilva: {
+        title: 'Nebula Silva',
+        subtitle: 'Black Metal Atmosphérique Suisse',
+        description:
+          "{{ link(Nebula Silva) }} est un projet de Black Metal Atmosphérique suisse né en 2018 en Valais. S\'inspirant de l\'intensité froide de Mgła, de la profondeur atmosphérique de Der Weg Einer Freiheit et de la grandeur rituelle de Batushka, le duo explore les thèmes de la décadence civilisationnelle et des impasses existentielles.{{ break() }}{{ break() }}Le projet réunit Slordef à la guitare et Nøname au chant et à la basse.",
       },
     },
   },

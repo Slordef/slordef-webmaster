@@ -4,7 +4,8 @@ import WorkOneManStudioForGames from "@/data/works/onemanstudioforgames/workOneM
 import WorkSqual from "@/data/works/squal/workSqual";
 import WorkVaalnor from "@/data/works/vaalnor/workVaalnor";
 import WorkSoulsGathering from "@/data/works/soulsgathering/workSoulsGathering";
-import WorkSloStream from "@/data/works/slo-stream/workSloStream";
+import WorkAurioaTech from "@/data/works/aurioa-tech/workAurioaTech";
+import WorkNebulaSilva from "@/data/works/nebulasilva/workNebulaSilva";
 
 export const projects = [
   <WorkResilioTech key={1} />,
@@ -13,5 +14,6 @@ export const projects = [
   <WorkSqual key={4} />,
   <WorkVaalnor key={5} />,
   <WorkSoulsGathering key={6} />,
-  <WorkSloStream key={7} />,
+  <WorkAurioaTech key={7} />,
+  <WorkNebulaSilva key={8} />,
 ];
