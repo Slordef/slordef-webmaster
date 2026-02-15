@@ -5,11 +5,14 @@ import { StructuredData } from '@/components/seo/StructuredData';
 import { Navigation } from '@/components/navigation/Navigation';
 import { I18nProvider } from '@/i18n/context';
 
+const baseUrl = 'https://slordef-webmaster.ch';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: 'Slordef | CTO & CISO Freelance - Architecture, Security, Technical Leadership',
   description: 'CTO and CISO with 15+ years of experience in fullstack development, security, and technical leadership. I help startups and tech-driven SMEs structure their architecture, secure their systems, and manage technical complexity.',
   applicationName: 'Slordef',
-  authors: { name: 'Slordef', url: 'https://slordef-webmaster.ch' },
+  authors: { name: 'Slordef', url: baseUrl },
   generator: 'Next.js',
   keywords: [
     'CTO',
@@ -33,10 +36,18 @@ export const metadata: Metadata = {
   icons: {
     icon: '/template/logo.png',
   },
+  alternates: {
+    canonical: baseUrl,
+    languages: {
+      'en': `${baseUrl}?lang=en`,
+      'fr': `${baseUrl}?lang=fr`,
+    },
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://slordef-webmaster.ch',
+    alternateLocale: 'fr_FR',
+    url: baseUrl,
     title: 'Slordef | CTO & CISO Freelance',
     description: 'CTO and CISO with 15+ years of experience helping startups and SMEs structure their architecture, secure their systems, and manage technical complexity.',
     siteName: 'Slordef',
