@@ -1,0 +1,14 @@
+{
+  "title": "Projets Personnels & Passions",
+  "subtitle": "Au-delà du travail professionnel, je poursuis des projets créatifs et techniques qui alimentent ma passion pour l'apprentissage",
+  "gamedev": {
+    "title": "Développement de Jeux",
+    "description": "Développement de jeux indépendants avec Unreal Engine, combinant programmation C++ avec modélisation 3D et animation. Construction d'expériences immersives de la conception à l'exécution.",
+    "technologies": ["Unreal Engine", "C++", "Modélisation 3D", "Animation"]
+  },
+  "music": {
+    "title": "Création Musicale",
+    "description": "Compositeur, parolier et interprète dans plusieurs projets musicaux. Explorer la créativité à travers le son et donner vie aux visions artistiques.",
+    "technologies": ["Composition", "Paroles", "Interprétation", "Production"]
+  }
+}

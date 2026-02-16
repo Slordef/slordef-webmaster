@@ -1,0 +1,34 @@
+{
+  "title": "Engagement Models",
+  "subtitle": "Flexible collaboration options tailored to your needs",
+  "fractional": {
+    "title": "Fractional CTO/CISO",
+    "description": "Regular strategic support for startups and growing companies",
+    "items": [
+      "1–2 days per week commitment",
+      "Technical roadmap and strategy",
+      "Team leadership and mentoring",
+      "Architecture and security oversight"
+    ]
+  },
+  "audits": {
+    "title": "Audits & Assessments",
+    "description": "In-depth analysis of your systems, security, and processes",
+    "items": [
+      "Security and architecture audits",
+      "Performance and scalability analysis",
+      "ISO 27001 gap assessment",
+      "Detailed recommendations and action plans"
+    ]
+  },
+  "missions": {
+    "title": "Short Missions",
+    "description": "Targeted interventions for specific technical challenges",
+    "items": [
+      "2–5 day focused engagements",
+      "CI/CD pipeline setup",
+      "Infrastructure hardening",
+      "Incident response and crisis management"
+    ]
+  }
+}

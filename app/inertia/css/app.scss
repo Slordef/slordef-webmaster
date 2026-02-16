@@ -1,0 +1,74 @@
+// Theme colors
+$color-primary: #f4a460;
+$color-primary-dark: #9b7d68;
+$color-bg-dark: #1a1a1a;
+$color-bg-darker: #2a2a2a;
+$color-bg-light: #f1f0d8;
+$color-text-light: #fff;
+$color-text-dark: #2c2416;
+$color-text-muted: rgba(255, 255, 255, 0.7);
+
+// Fonts
+$font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+  Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+// Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: $font-family;
+  background-color: $color-bg-dark;
+  background-image: url('/template/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: $color-text-light;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-bg-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-primary;
+  border-radius: 4px;
+
+  &:hover {
+    background: $color-primary-dark;
+  }
+}
+
+// Selection
+::selection {
+  background-color: $color-primary;
+  color: $color-bg-dark;
+}

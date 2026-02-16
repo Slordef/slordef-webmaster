@@ -1,0 +1,39 @@
+{
+  "title": "Core Expertise",
+  "architecture": {
+    "title": "Architecture & Development",
+    "items": [
+      "Multi-tenant architecture, scalability, performance",
+      "TypeScript, Node.js, React, Vue, Python, C++",
+      "CI/CD pipelines, containerization, cloud infrastructure",
+      "Monitoring and observability"
+    ]
+  },
+  "security": {
+    "title": "Security & Compliance",
+    "items": [
+      "ISO 27001: full implementation and certification",
+      "Security audits, risk management, DevSecOps",
+      "Policy design, incident response plans",
+      "Vulnerability management"
+    ]
+  },
+  "leadership": {
+    "title": "Leadership & Governance",
+    "items": [
+      "Technical roadmap definition and execution",
+      "Mentoring developers and leading teams",
+      "Crisis management (production, vulnerabilities)",
+      "Cross-functional collaboration"
+    ]
+  },
+  "impact": {
+    "title": "Impact & Sustainability",
+    "items": [
+      "Eco-design and green IT practices",
+      "Accessibility (WCAG, RGAA)",
+      "IT environmental impact assessment",
+      "Sustainable architecture decisions"
+    ]
+  }
+}

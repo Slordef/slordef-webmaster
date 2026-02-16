@@ -1,0 +1,14 @@
+{
+  "title": "Side Projects & Passions",
+  "subtitle": "Beyond professional work, I pursue creative and technical projects that fuel my passion for learning",
+  "gamedev": {
+    "title": "Game Development",
+    "description": "Independent game development using Unreal Engine, combining C++ programming with 3D modeling and animation. Building immersive experiences from concept to execution.",
+    "technologies": ["Unreal Engine", "C++", "3D Modeling", "Animation"]
+  },
+  "music": {
+    "title": "Music Creation",
+    "description": "Composer, lyricist, and performer across multiple musical projects. Exploring creativity through sound and bringing artistic visions to life.",
+    "technologies": ["Composition", "Lyrics", "Performance", "Production"]
+  }
+}
