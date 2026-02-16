@@ -90,7 +90,7 @@ export default class extends BaseSeeder {
         url: 'https://vaalnor.com',
         isPublished: true,
         order: 5,
-        category: 'side-project' as const,
+        category: 'work' as const,
         translations: {
           en: {
             title: 'Vaalnor',
@@ -112,7 +112,7 @@ export default class extends BaseSeeder {
         url: 'https://soulsgathering.com',
         isPublished: true,
         order: 6,
-        category: 'side-project' as const,
+        category: 'work' as const,
         translations: {
           en: {
             title: 'Souls Gathering',
@@ -176,7 +176,7 @@ export default class extends BaseSeeder {
         url: 'https://nebulasilva.com',
         isPublished: true,
         order: 8,
-        category: 'side-project' as const,
+        category: 'work' as const,
         translations: {
           en: {
             title: 'Nebula Silva',
