@@ -20,6 +20,7 @@ WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
 COPY --from=builder /workspace/app/build ./
+COPY --from=builder /workspace/pnpm-lock.yaml ./
 RUN pnpm install --prod --frozen-lockfile
 
 EXPOSE 3333
