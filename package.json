@@ -1,28 +1,8 @@
 {
   "name": "slordef-webmaster",
-  "version": "2.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "16.0.10",
-    "posthog-js": "^1.306.1",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3.3.3",
-    "@types/node": "^20.19.27",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "eslint": "^9.39.2",
-    "eslint-config-next": "15.1.6",
-    "eslint-config-prettier": "^10.1.8",
-    "prettier": "^3.7.4",
-    "typescript": "^5.9.3"
+    "dev": "./dev.sh serve",
+    "build": "pnpm --filter app build"
   }
 }

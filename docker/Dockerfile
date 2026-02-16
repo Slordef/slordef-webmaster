@@ -1,26 +1,27 @@
 FROM node:22-alpine AS builder
 
-WORKDIR /app
+WORKDIR /workspace
 
-COPY package.json .
+RUN corepack enable && corepack prepare pnpm@latest --activate
 
-RUN npm install
+COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
+COPY app/package.json ./app/
 
-COPY . .
+RUN pnpm install --frozen-lockfile
 
-RUN npm run build
+COPY app ./app
+
+RUN pnpm --filter app build
 
 FROM node:22-alpine
 
 WORKDIR /app
 
-COPY --from=builder /app/package.json .
-COPY --from=builder /app/public ./public
+RUN corepack enable && corepack prepare pnpm@latest --activate
 
-RUN mkdir ".next"
+COPY --from=builder /workspace/app/build ./
+RUN pnpm install --prod --frozen-lockfile
 
-COPY --from=builder /app/.next ./.next
+EXPOSE 3333
 
-RUN npm install --omit=dev
-
-CMD ["npm", "start"]
+CMD ["node", "bin/server.js"]
