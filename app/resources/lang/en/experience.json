@@ -1,0 +1,28 @@
+{
+  "title": "Professional Experience",
+  "resilio": {
+    "period": "2022 – Present",
+    "position": "CTO & CISO",
+    "company": "Resilio SA • Lausanne (Remote & Hybrid)",
+    "items": [
+      "Led technical strategy and development of two SaaS products for IT environmental impact analysis",
+      "Achieved ISO 27001 certification with full ISMS implementation",
+      "Directed development team: process design, mentoring, architecture decisions",
+      "Ensured zero critical downtime through robust monitoring and redundancy",
+      "Integrated eco-design and accessibility into product lifecycles"
+    ],
+    "techStack": ["TypeScript", "Node.js", "React", "Python", "PostgreSQL", "Docker", "CI/CD"]
+  },
+  "freelance": {
+    "period": "2009 – Present",
+    "position": "Freelance – CTO/CISO as a Service | Fullstack Developer",
+    "company": "Switzerland (Remote)",
+    "items": [
+      "Security and architecture audits, infrastructure hardening",
+      "Designed and delivered scalable, high-performance web applications and APIs",
+      "Implemented CI/CD pipelines and containerized environments",
+      "Advised startup founders and technical leaders on long-term tech strategy",
+      "Multiple successful projects spanning web, game development, and system architecture"
+    ]
+  }
+}

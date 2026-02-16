@@ -1,0 +1,39 @@
+{
+  "title": "Expertise Principale",
+  "architecture": {
+    "title": "Architecture & Développement",
+    "items": [
+      "Architecture multi-tenant, scalabilité, performance",
+      "TypeScript, Node.js, React, Vue, Python, C++",
+      "Pipelines CI/CD, containerisation, infrastructure cloud",
+      "Monitoring et observabilité"
+    ]
+  },
+  "security": {
+    "title": "Sécurité & Conformité",
+    "items": [
+      "ISO 27001 : implémentation complète et certification",
+      "Audits de sécurité, gestion des risques, DevSecOps",
+      "Conception de politiques, plans de réponse aux incidents",
+      "Gestion des vulnérabilités"
+    ]
+  },
+  "leadership": {
+    "title": "Leadership & Gouvernance",
+    "items": [
+      "Définition et exécution de la roadmap technique",
+      "Mentorat de développeurs et direction d'équipes",
+      "Gestion de crise (production, vulnérabilités)",
+      "Collaboration transversale"
+    ]
+  },
+  "impact": {
+    "title": "Impact & Durabilité",
+    "items": [
+      "Éco-conception et pratiques Green IT",
+      "Accessibilité (WCAG, RGAA)",
+      "Évaluation de l'impact environnemental IT",
+      "Décisions architecturales durables"
+    ]
+  }
+}

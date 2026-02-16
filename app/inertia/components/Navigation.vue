@@ -1,0 +1,328 @@
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+import { router } from '@inertiajs/vue3'
+import { useI18n, availableLocales, type Locale } from '../composables/useI18n'
+
+const { t, locale } = useI18n()
+
+const isScrolled = ref(false)
+const isMobileMenuOpen = ref(false)
+const mounted = ref(false)
+
+const navLinks = [
+  { href: '#home', key: 'nav.home' },
+  { href: '#about', key: 'nav.about' },
+  { href: '#expertise', key: 'nav.expertise' },
+  { href: '#services', key: 'nav.services' },
+  { href: '#experience', key: 'nav.experience' },
+  { href: '#my-works', key: 'nav.works' },
+  { href: '#contact', key: 'nav.contact' },
+]
+
+function handleScroll() {
+  isScrolled.value = window.scrollY > 50
+}
+
+function handleLinkClick() {
+  isMobileMenuOpen.value = false
+}
+
+function setLocale(newLocale: Locale) {
+  router.post(
+    '/locale',
+    { locale: newLocale },
+    {
+      preserveScroll: true,
+      preserveState: true,
+    }
+  )
+}
+
+onMounted(() => {
+  mounted.value = true
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
+</script>
+
+<template>
+  <nav :class="['navigation', { scrolled: isScrolled }]">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="#home" @click="handleLinkClick">
+          <span class="brand-name">Slordef</span>
+          <span class="brand-title">CTO & CISO</span>
+        </a>
+      </div>
+
+      <button
+        :class="['mobile-menu-toggle', { open: isMobileMenuOpen }]"
+        @click="isMobileMenuOpen = !isMobileMenuOpen"
+        aria-label="Toggle menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div :class="['nav-links', { open: isMobileMenuOpen }]">
+        <a
+          v-for="link in navLinks"
+          :key="link.href"
+          :href="link.href"
+          class="nav-link"
+          @click="handleLinkClick"
+        >
+          {{ t(link.key) }}
+        </a>
+      </div>
+
+      <div class="nav-language-switcher">
+        <button
+          v-for="lang in availableLocales"
+          :key="lang"
+          :class="['lang-btn', { active: mounted && locale === lang }]"
+          :aria-label="`Switch to ${lang.toUpperCase()}`"
+          :disabled="!mounted"
+          @click="setLocale(lang)"
+        >
+          {{ lang.toUpperCase() }}
+        </button>
+      </div>
+    </div>
+  </nav>
+</template>
+
+<style scoped>
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navigation.scrolled {
+  background-color: rgba(26, 26, 26, 0.98);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.nav-brand a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-brand a:hover {
+  opacity: 0.8;
+}
+
+.brand-name {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #f4a460;
+  line-height: 1;
+}
+
+.brand-title {
+  font-size: 0.75em;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.95em;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+  padding: 5px 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #f4a460, #9b7d68);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #f4a460;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-language-switcher {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-language-switcher .lang-btn {
+  background: transparent;
+  border: 2px solid rgba(244, 164, 96, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85em;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-width: 45px;
+}
+
+.nav-language-switcher .lang-btn:hover:not(:disabled) {
+  background: rgba(244, 164, 96, 0.15);
+  color: #f4a460;
+  border-color: rgba(244, 164, 96, 0.5);
+}
+
+.nav-language-switcher .lang-btn.active {
+  background: #f4a460;
+  color: #1a1a1a;
+  border-color: #f4a460;
+  font-weight: 700;
+}
+
+.nav-language-switcher .lang-btn:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: #f4a460;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.open span:nth-child(1) {
+  transform: translateY(9.5px) rotate(45deg);
+}
+
+.mobile-menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.open span:nth-child(3) {
+  transform: translateY(-9.5px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    height: 60px;
+  }
+
+  .brand-name {
+    font-size: 1.3em;
+  }
+
+  .brand-title {
+    font-size: 0.7em;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .nav-language-switcher {
+    gap: 6px;
+  }
+
+  .nav-language-switcher .lang-btn {
+    padding: 5px 12px;
+    font-size: 0.8em;
+    min-width: 40px;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: rgba(26, 26, 26, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    gap: 0;
+    padding: 20px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links.open {
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  .nav-link {
+    padding: 15px 30px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.05em;
+    border-bottom: 1px solid rgba(244, 164, 96, 0.1);
+  }
+
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .nav-link:hover {
+    background-color: rgba(244, 164, 96, 0.1);
+  }
+}
+</style>
