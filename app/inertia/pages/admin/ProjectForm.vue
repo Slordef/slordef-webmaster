@@ -99,175 +99,114 @@ const submit = () => {
     formData.append('images', file)
   }
 
-  if (isEditing.value) {
-    formData.append('_method', 'PUT')
-    router.post(`/admin/projects/${props.project!.id}`, formData, {
-      onFinish: () => {
-        processing.value = false
-      },
-    })
-  } else {
-    router.post('/admin/projects', formData, {
-      onFinish: () => {
-        processing.value = false
-      },
-    })
-  }
+  const url = isEditing.value ? `/admin/projects/${props.project!.id}` : '/admin/projects'
+
+  router.post(url, formData, {
+    forceFormData: true,
+    onFinish: () => {
+      processing.value = false
+    },
+  })
 }
 </script>
 
 <template>
   <Head :title="isEditing ? 'Edit Project' : 'Create Project'" />
 
-  <div class="min-h-screen bg-gray-100">
-    <nav class="bg-white shadow-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-          <div class="flex items-center">
-            <span class="text-xl font-bold">Admin</span>
-            <div class="ml-10 flex items-center space-x-4">
-              <Link href="/admin" class="text-gray-700 hover:text-gray-900">Dashboard</Link>
-              <Link href="/admin/projects" class="text-gray-900 font-semibold">Projects</Link>
-            </div>
+  <div class="admin-container">
+    <nav class="admin-nav">
+      <div class="nav-content">
+        <div class="nav-left">
+          <span class="nav-brand">Admin</span>
+          <div class="nav-links">
+            <Link href="/admin" class="nav-link">Dashboard</Link>
+            <Link href="/admin/projects" class="nav-link active">Projects</Link>
           </div>
         </div>
       </div>
     </nav>
 
-    <main class="max-w-4xl mx-auto py-6 sm:px-6 lg:px-8">
-      <h1 class="text-2xl font-bold mb-6">{{ isEditing ? 'Edit Project' : 'Create Project' }}</h1>
+    <main class="admin-main">
+      <h1 class="page-title">{{ isEditing ? 'Edit Project' : 'Create Project' }}</h1>
 
-      <form @submit.prevent="submit" class="bg-white shadow rounded-lg p-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Slug</label>
-            <input
-              v-model="form.slug"
-              type="text"
-              class="w-full px-3 py-2 border border-gray-300 rounded-md"
-              required
-            />
+      <form @submit.prevent="submit" class="form-card">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Slug</label>
+            <input v-model="form.slug" type="text" class="form-input" required />
           </div>
 
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">URL</label>
-            <input
-              v-model="form.url"
-              type="url"
-              class="w-full px-3 py-2 border border-gray-300 rounded-md"
-            />
+          <div class="form-group">
+            <label class="form-label">URL</label>
+            <input v-model="form.url" type="url" class="form-input" />
           </div>
 
-          <div class="md:col-span-2">
-            <label class="block text-sm font-medium text-gray-700 mb-1">Images</label>
-            <div class="flex flex-wrap gap-4 mb-4">
-              <div
-                v-for="(img, index) in existingImages"
-                :key="`existing-${index}`"
-                class="relative"
-              >
-                <img :src="img" alt="Existing" class="w-32 h-32 object-cover rounded-md" />
-                <button
-                  type="button"
-                  @click="removeExistingImage(index)"
-                  class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600"
-                >
-                  &times;
-                </button>
+          <div class="form-group full-width">
+            <label class="form-label">Images</label>
+            <div class="images-grid">
+              <div v-for="(img, index) in existingImages" :key="`existing-${index}`" class="image-item">
+                <img :src="img" alt="Existing" class="image-preview" />
+                <button type="button" @click="removeExistingImage(index)" class="image-remove">&times;</button>
               </div>
-              <div
-                v-for="(preview, index) in newImagePreviews"
-                :key="`new-${index}`"
-                class="relative"
-              >
-                <img :src="preview" alt="New" class="w-32 h-32 object-cover rounded-md border-2 border-green-400" />
-                <button
-                  type="button"
-                  @click="removeNewImage(index)"
-                  class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600"
-                >
-                  &times;
-                </button>
+              <div v-for="(preview, index) in newImagePreviews" :key="`new-${index}`" class="image-item new">
+                <img :src="preview" alt="New" class="image-preview" />
+                <button type="button" @click="removeNewImage(index)" class="image-remove">&times;</button>
               </div>
             </div>
-            <div>
+            <div class="file-input-wrapper">
               <input
                 type="file"
                 accept="image/jpeg,image/png,image/gif,image/webp"
                 multiple
                 @change="handleImagesChange"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md"
+                class="form-input"
               />
-              <p class="mt-1 text-sm text-gray-500">JPG, PNG, GIF, WebP. Max 10MB each. Multiple files allowed.</p>
+              <p class="form-hint">JPG, PNG, GIF, WebP. Max 10MB each. Multiple files allowed.</p>
             </div>
           </div>
 
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
-            <select v-model="form.category" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select v-model="form.category" class="form-input">
               <option value="work">Work</option>
               <option value="side-project">Side Project</option>
             </select>
           </div>
 
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Order</label>
-            <input
-              v-model.number="form.order"
-              type="number"
-              class="w-full px-3 py-2 border border-gray-300 rounded-md"
-            />
+          <div class="form-group">
+            <label class="form-label">Order</label>
+            <input v-model.number="form.order" type="number" class="form-input" />
           </div>
 
-          <div class="flex items-center">
-            <input
-              id="isPublished"
-              v-model="form.isPublished"
-              type="checkbox"
-              class="h-4 w-4 text-blue-600 border-gray-300 rounded"
-            />
-            <label for="isPublished" class="ml-2 text-sm text-gray-700">Published</label>
+          <div class="form-group checkbox-group">
+            <input id="isPublished" v-model="form.isPublished" type="checkbox" class="form-checkbox" />
+            <label for="isPublished" class="checkbox-label">Published</label>
           </div>
         </div>
 
-        <hr class="my-6" />
+        <hr class="form-divider" />
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- English -->
-          <div>
-            <h3 class="text-lg font-semibold mb-4">English</h3>
-            <div class="mb-4">
-              <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
-              <input
-                v-model="form.translations.en.title"
-                type="text"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                required
-              />
+        <div class="translations-grid">
+          <div class="translation-section">
+            <h3 class="section-title">English</h3>
+            <div class="form-group">
+              <label class="form-label">Title</label>
+              <input v-model="form.translations.en.title" type="text" class="form-input" required />
             </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-              <TiptapEditor
-                v-model="form.translations.en.description"
-                placeholder="Write description in English..."
-              />
+            <div class="form-group">
+              <label class="form-label">Description</label>
+              <TiptapEditor v-model="form.translations.en.description" placeholder="Write description in English..." />
             </div>
           </div>
 
-          <!-- French -->
-          <div>
-            <h3 class="text-lg font-semibold mb-4">French</h3>
-            <div class="mb-4">
-              <label class="block text-sm font-medium text-gray-700 mb-1">Titre</label>
-              <input
-                v-model="form.translations.fr.title"
-                type="text"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                required
-              />
+          <div class="translation-section">
+            <h3 class="section-title">French</h3>
+            <div class="form-group">
+              <label class="form-label">Titre</label>
+              <input v-model="form.translations.fr.title" type="text" class="form-input" required />
             </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+            <div class="form-group">
+              <label class="form-label">Description</label>
               <TiptapEditor
                 v-model="form.translations.fr.description"
                 placeholder="Écrivez la description en français..."
@@ -276,15 +215,9 @@ const submit = () => {
           </div>
         </div>
 
-        <div class="mt-6 flex justify-end gap-4">
-          <Link href="/admin/projects" class="px-4 py-2 text-gray-700 hover:text-gray-900">
-            Cancel
-          </Link>
-          <button
-            type="submit"
-            :disabled="processing"
-            class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50"
-          >
+        <div class="form-actions">
+          <Link href="/admin/projects" class="btn-cancel">Cancel</Link>
+          <button type="submit" :disabled="processing" class="btn-submit">
             {{ isEditing ? 'Update' : 'Create' }}
           </button>
         </div>
@@ -292,3 +225,258 @@ const submit = () => {
     </main>
   </div>
 </template>
+
+<style scoped>
+.admin-container {
+  min-height: 100vh;
+  background: #f3f4f6;
+}
+
+.admin-nav {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nav-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+}
+
+.nav-link {
+  color: #4b5563;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.nav-link:hover {
+  color: #111;
+  background: #f3f4f6;
+}
+
+.nav-link.active {
+  color: #111;
+  font-weight: 600;
+}
+
+.admin-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 24px;
+}
+
+.form-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.form-hint {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 6px;
+}
+
+.images-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.image-item {
+  position: relative;
+}
+
+.image-item.new .image-preview {
+  border: 2px solid #22c55e;
+}
+
+.image-preview {
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.image-remove {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  background: #dc2626;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: background 0.2s;
+}
+
+.image-remove:hover {
+  background: #b91c1c;
+}
+
+.checkbox-group {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: #2563eb;
+}
+
+.checkbox-label {
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.form-divider {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 24px 0;
+}
+
+.translations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 16px;
+}
+
+.translation-section .form-group {
+  margin-bottom: 16px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.btn-cancel {
+  padding: 10px 16px;
+  color: #4b5563;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.btn-cancel:hover {
+  color: #111;
+  background: #f3f4f6;
+}
+
+.btn-submit {
+  padding: 10px 20px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover {
+  background: #1d4ed8;
+}
+
+.btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .form-grid,
+  .translations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full-width {
+    grid-column: span 1;
+  }
+}
+</style>

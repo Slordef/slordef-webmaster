@@ -20,9 +20,6 @@ const editor = useEditor({
     StarterKit,
     Link.configure({
       openOnClick: false,
-      HTMLAttributes: {
-        class: 'text-blue-500 underline',
-      },
     }),
     Placeholder.configure({
       placeholder: props.placeholder || 'Write something...',
@@ -30,7 +27,7 @@ const editor = useEditor({
   ],
   editorProps: {
     attributes: {
-      class: 'prose prose-sm max-w-none focus:outline-none min-h-[150px] p-3',
+      class: 'editor-content',
     },
   },
   onUpdate: () => {
@@ -64,8 +61,8 @@ const setLink = () => {
 </script>
 
 <template>
-  <div class="tiptap-editor border border-gray-300 rounded-md overflow-hidden">
-    <div v-if="editor" class="toolbar flex flex-wrap gap-1 p-2 bg-gray-50 border-b border-gray-300">
+  <div class="tiptap-editor">
+    <div v-if="editor" class="toolbar">
       <button
         type="button"
         @click="editor.chain().focus().toggleBold().run()"
@@ -174,9 +171,24 @@ const setLink = () => {
 </template>
 
 <style scoped>
+.tiptap-editor {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px;
+  background: #f9fafb;
+  border-bottom: 1px solid #d1d5db;
+}
+
 .toolbar-btn {
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
+  padding: 4px 8px;
+  border-radius: 4px;
   background: white;
   border: 1px solid #d1d5db;
   cursor: pointer;
@@ -198,7 +210,13 @@ const setLink = () => {
 .divider {
   width: 1px;
   background: #d1d5db;
-  margin: 0 0.25rem;
+  margin: 0 4px;
+}
+
+:deep(.editor-content) {
+  min-height: 150px;
+  padding: 12px;
+  outline: none;
 }
 
 :deep(.tiptap) {
@@ -211,6 +229,10 @@ const setLink = () => {
   color: #9ca3af;
   pointer-events: none;
   height: 0;
+}
+
+:deep(.tiptap p) {
+  margin: 0.5rem 0;
 }
 
 :deep(.tiptap h2) {
@@ -231,6 +253,10 @@ const setLink = () => {
   margin: 0.5rem 0;
 }
 
+:deep(.tiptap li) {
+  margin: 0.25rem 0;
+}
+
 :deep(.tiptap blockquote) {
   border-left: 3px solid #d1d5db;
   padding-left: 1rem;
@@ -247,5 +273,9 @@ const setLink = () => {
 :deep(.tiptap a) {
   color: #3b82f6;
   text-decoration: underline;
+}
+
+:deep(.tiptap strong) {
+  font-weight: 600;
 }
 </style>
