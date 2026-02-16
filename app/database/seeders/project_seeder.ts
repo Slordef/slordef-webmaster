@@ -86,7 +86,7 @@ export default class extends BaseSeeder {
       },
       {
         slug: 'vaalnor',
-        images: '/works/Vaalnor.jpg',
+        images: '/works/Vaalnor.png',
         url: 'https://vaalnor.com',
         isPublished: true,
         order: 5,
@@ -108,7 +108,7 @@ export default class extends BaseSeeder {
       },
       {
         slug: 'souls-gathering',
-        images: '/works/SoulsGathering.jpg',
+        images: '/works/SoulsGathering.png',
         url: 'https://soulsgathering.com',
         isPublished: true,
         order: 6,
@@ -141,7 +141,7 @@ export default class extends BaseSeeder {
       {
         slug: 'aurioa-tech',
         images: '/works/aurioa-tech.png',
-        url: 'https://aurioa-tech.ch',
+        url: 'https://aurioa-tech.com',
         isPublished: true,
         order: 7,
         category: 'work' as const,
