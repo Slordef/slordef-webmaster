@@ -44,4 +44,12 @@ export default await Env.create(new URL('../', import.meta.url), {
   VITE_APP_NAME: Env.schema.string.optional(),
   VITE_POSTHOG_KEY: Env.schema.string.optional(),
   VITE_POSTHOG_HOST: Env.schema.string.optional(),
+
+  /*
+  |----------------------------------------------------------
+  | Variables for admin seeder
+  |----------------------------------------------------------
+  */
+  ADMIN_EMAIL: Env.schema.string.optional(),
+  ADMIN_PASSWORD: Env.schema.string.optional(),
 })
