@@ -38,7 +38,7 @@ router
         router.get('/projects/create', [ProjectsController, 'create']).as('admin.projects.create')
         router.post('/projects', [ProjectsController, 'store']).as('admin.projects.store')
         router.get('/projects/:id/edit', [ProjectsController, 'edit']).as('admin.projects.edit')
-        router.put('/projects/:id', [ProjectsController, 'update']).as('admin.projects.update')
+        router.post('/projects/:id', [ProjectsController, 'update']).as('admin.projects.update')
         router.delete('/projects/:id', [ProjectsController, 'destroy']).as('admin.projects.destroy')
       })
       .use(middleware.auth())
