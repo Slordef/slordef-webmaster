@@ -217,6 +217,8 @@ const setLink = () => {
   min-height: 150px;
   padding: 12px;
   outline: none;
+  background: white;
+  color: #111;
 }
 
 :deep(.tiptap) {
