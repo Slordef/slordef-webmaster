@@ -20,6 +20,7 @@ WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
 COPY --from=builder /workspace/app/build ./
+COPY --from=builder /workspace/pnpm-workspace.yaml ./
 RUN pnpm install --prod
 
 EXPOSE 3333
