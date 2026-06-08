@@ -1,30 +1,32 @@
 import { defineConfig } from '@adonisjs/inertia'
-import type { InferSharedProps } from '@adonisjs/inertia/types'
+import type Project from '#models/project'
 
-const inertiaConfig = defineConfig({
+export default defineConfig({
   /**
    * Path to the Edge view that will be used as the root view for Inertia responses
    */
   rootView: 'inertia_layout',
 
   /**
-   * Data that should be shared with all rendered pages
-   */
-  sharedData: {
-    // user: (ctx) => ctx.inertia.always(() => ctx.auth.user),
-  },
-
-  /**
    * Options for the server-side rendering
    */
   ssr: {
     enabled: true,
-    entrypoint: 'inertia/app/ssr.ts'
+    entrypoint: 'inertia/ssr.ts'
   }
 })
 
-export default inertiaConfig
-
+/**
+ * Inertia pages type definitions for type-safe rendering
+ */
 declare module '@adonisjs/inertia/types' {
-  export interface SharedProps extends InferSharedProps<typeof inertiaConfig> {}
+  export interface InertiaPages {
+    'Home': { projects: Project[] }
+    'admin/Login': {}
+    'admin/Dashboard': { stats: { projects: number | string } }
+    'admin/Projects': { projects: Project[] }
+    'admin/ProjectForm': { project: Project | null }
+    'errors/not_found': { error: { message: string; status?: number } }
+    'errors/server_error': { error: { message: string; status?: number } }
+  }
 }

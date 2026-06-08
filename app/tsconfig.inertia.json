@@ -1,0 +1,9 @@
+{
+  "extends": "@adonisjs/tsconfig/tsconfig.client.json",
+  "compilerOptions": {
+    "rootDir": "./",
+    "outDir": "./build/inertia",
+    "composite": true
+  },
+  "include": ["./inertia/**/*", "./.adonisjs/**/*"]
+}

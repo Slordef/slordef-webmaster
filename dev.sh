@@ -7,20 +7,26 @@ case "$1" in
   down)
     docker compose -f docker-compose.dev.yml down -v
     ;;
+  build)
+    docker compose -f docker-compose.dev.yml build --no-cache
+    ;;
+  logs)
+    docker compose -f docker-compose.dev.yml logs -f web
+    ;;
   migrate)
-    cd app && node ace migration:run
+    docker compose -f docker-compose.dev.yml exec web node ace migration:run --force
     ;;
   migrate:fresh)
-    cd app && node ace migration:fresh
+    docker compose -f docker-compose.dev.yml exec web node ace migration:fresh --force
     ;;
   seed)
-    cd app && node ace db:seed
+    docker compose -f docker-compose.dev.yml exec web node ace db:seed
     ;;
   serve)
-    cd app && node ace serve --watch
+    cd app && node ace serve --hmr
     ;;
   *)
-    echo "Usage: ./dev.sh [up|down|migrate|migrate:fresh|seed|serve]"
+    echo "Usage: ./dev.sh [up|down|build|logs|migrate|migrate:fresh|seed|serve]"
     exit 1
     ;;
 esac

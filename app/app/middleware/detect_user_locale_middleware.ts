@@ -86,3 +86,13 @@ declare module '@adonisjs/core/http' {
     i18n: I18n
   }
 }
+
+/**
+ * Type the shared Inertia props
+ */
+declare module '@adonisjs/inertia/types' {
+  export interface SharedProps {
+    locale: string
+    translations: Record<string, string>
+  }
+}

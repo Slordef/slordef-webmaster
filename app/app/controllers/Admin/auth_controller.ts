@@ -3,7 +3,7 @@ import User from '#models/user'
 
 export default class AuthController {
   async showLogin({ inertia }: HttpContext) {
-    return inertia.render('admin/Login')
+    return inertia.render('admin/Login', {})
   }
 
   async login({ request, auth, response, session }: HttpContext) {
@@ -12,6 +12,7 @@ export default class AuthController {
     try {
       const user = await User.verifyCredentials(email, password)
       await auth.use('web').login(user)
+      // @ts-expect-error Route types not configured for v7
       return response.redirect().toRoute('admin.dashboard')
     } catch {
       session.flash('error', 'Invalid credentials')
@@ -21,6 +22,7 @@ export default class AuthController {
 
   async logout({ auth, response }: HttpContext) {
     await auth.use('web').logout()
+    // @ts-expect-error Route types not configured for v7
     return response.redirect().toRoute('admin.login')
   }
 }

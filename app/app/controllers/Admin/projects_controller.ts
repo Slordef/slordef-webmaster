@@ -1,7 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Project from '#models/project'
 import app from '@adonisjs/core/services/app'
-import { cuid } from '@adonisjs/core/helpers'
+import { randomUUID } from 'node:crypto'
 import * as fs from 'node:fs'
 import sharp from 'sharp'
 
@@ -25,7 +25,7 @@ export default class ProjectsController {
       fs.mkdirSync(uploadsDir, { recursive: true })
     }
 
-    const fileName = `${cuid()}.webp`
+    const fileName = `${randomUUID()}.webp`
     const outputPath = `${uploadsDir}/${fileName}`
 
     await sharp(file.tmpPath)
@@ -87,6 +87,7 @@ export default class ProjectsController {
       })
     }
 
+    // @ts-expect-error Route types not configured for v7
     return response.redirect().toRoute('admin.projects.index')
   }
 
@@ -164,6 +165,7 @@ export default class ProjectsController {
       }
     }
 
+    // @ts-expect-error Route types not configured for v7
     return response.redirect().toRoute('admin.projects.index')
   }
 
@@ -176,6 +178,7 @@ export default class ProjectsController {
 
     await project.delete()
 
+    // @ts-expect-error Route types not configured for v7
     return response.redirect().toRoute('admin.projects.index')
   }
 }

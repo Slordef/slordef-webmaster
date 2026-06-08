@@ -1,4 +1,4 @@
-FROM node:22-alpine AS builder
+FROM node:24-alpine AS builder
 
 WORKDIR /workspace
 
@@ -13,13 +13,14 @@ COPY app ./app
 
 RUN pnpm --filter app build
 
-FROM node:22-alpine
+FROM node:24-alpine
 
 WORKDIR /app
 
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
 COPY --from=builder /workspace/app/build ./
+COPY --from=builder /workspace/pnpm-workspace.yaml ./
 RUN pnpm install --prod
 
 EXPOSE 3333
