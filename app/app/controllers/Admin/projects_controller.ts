@@ -87,6 +87,7 @@ export default class ProjectsController {
       })
     }
 
+    // @ts-expect-error Route types not configured for v7
     return response.redirect().toRoute('admin.projects.index')
   }
 
@@ -164,6 +165,7 @@ export default class ProjectsController {
       }
     }
 
+    // @ts-expect-error Route types not configured for v7
     return response.redirect().toRoute('admin.projects.index')
   }
 
@@ -176,6 +178,7 @@ export default class ProjectsController {
 
     await project.delete()
 
+    // @ts-expect-error Route types not configured for v7
     return response.redirect().toRoute('admin.projects.index')
   }
 }

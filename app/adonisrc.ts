@@ -1,6 +1,4 @@
 import { defineConfig } from '@adonisjs/core/app'
-import { indexEntities } from '@adonisjs/core'
-import { indexPages } from '@adonisjs/inertia/index_pages'
 
 export default defineConfig({
   /*
@@ -108,11 +106,6 @@ export default defineConfig({
   |--------------------------------------------------------------------------
   */
   hooks: {
-    init: [indexEntities()],
-    devServerStarted: [indexPages({ framework: 'vue3' })],
-    buildStarting: [
-      () => import('@adonisjs/vite/build_hook'),
-      indexPages({ framework: 'vue3' }),
-    ],
+    buildStarting: [() => import('@adonisjs/vite/build_hook')],
   },
 })
