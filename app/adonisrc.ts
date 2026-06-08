@@ -1,4 +1,5 @@
 import { defineConfig } from '@adonisjs/core/app'
+import { indexEntities } from '@adonisjs/core'
 
 export default defineConfig({
   /*
@@ -106,6 +107,7 @@ export default defineConfig({
   |--------------------------------------------------------------------------
   */
   hooks: {
+    init: [indexEntities()],
     buildStarting: [() => import('@adonisjs/vite/build_hook')],
   },
 })

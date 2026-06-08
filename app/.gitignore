@@ -3,6 +3,7 @@ node_modules
 build
 tmp
 .adonisjs
+database/schema.ts
 
 # Secrets
 .env

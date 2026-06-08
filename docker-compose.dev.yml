@@ -32,7 +32,7 @@ services:
       HOST: 0.0.0.0
       LOG_LEVEL: info
       APP_KEY: dev-secret-key-minimum-32-characters-long
-      NODE_ENV: development
+      NODE_ENV: production
       SESSION_DRIVER: cookie
       POSTGRES_HOST: postgres
       POSTGRES_PORT: 5432
