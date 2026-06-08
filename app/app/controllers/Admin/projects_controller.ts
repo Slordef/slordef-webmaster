@@ -1,7 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Project from '#models/project'
 import app from '@adonisjs/core/services/app'
-import { cuid } from '@adonisjs/core/helpers'
+import { randomUUID } from 'node:crypto'
 import * as fs from 'node:fs'
 import sharp from 'sharp'
 
@@ -25,7 +25,7 @@ export default class ProjectsController {
       fs.mkdirSync(uploadsDir, { recursive: true })
     }
 
-    const fileName = `${cuid()}.webp`
+    const fileName = `${randomUUID()}.webp`
     const outputPath = `${uploadsDir}/${fileName}`
 
     await sharp(file.tmpPath)
