@@ -112,8 +112,7 @@
         "Directed development team: process design, mentoring, architecture decisions",
         "Ensured zero critical downtime through robust monitoring and redundancy",
         "Integrated eco-design and accessibility into product lifecycles"
-      ],
-      "techStack": ["TypeScript", "Node.js", "React", "Python", "PostgreSQL", "Docker", "CI/CD"]
+      ]
     },
     "ciso": {
       "period": "January 2025 – Present",

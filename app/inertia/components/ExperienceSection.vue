@@ -4,10 +4,10 @@ import { useI18n } from '../composables/useI18n'
 const { t } = useI18n()
 
 const experiences = [
-  { key: 'cto', items: 4, techStack: 7 },
-  { key: 'ciso', items: 3, techStack: 0 },
-  { key: 'headOfEngineering', items: 3, techStack: 0 },
-  { key: 'freelance', items: 5, techStack: 0 },
+  { key: 'headOfEngineering', items: 3 },
+  { key: 'ciso', items: 3 },
+  { key: 'cto', items: 4 },
+  { key: 'freelance', items: 5 },
 ]
 </script>
 
@@ -27,11 +27,6 @@ const experiences = [
                 {{ t(`experience.${exp.key}.items.${i - 1}`) }}
               </li>
             </ul>
-            <div v-if="exp.techStack" class="tech-stack">
-              <span v-for="i in exp.techStack" :key="`${exp.key}_stack_${i}`">
-                {{ t(`experience.${exp.key}.techStack.${i - 1}`) }}
-              </span>
-            </div>
           </div>
         </div>
       </div>

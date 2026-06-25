@@ -112,8 +112,7 @@
         "Direction de l'équipe de développement : conception de processus, mentorat, décisions d'architecture",
         "Zéro temps d'arrêt critique grâce à un monitoring robuste et de la redondance",
         "Intégration de l'éco-conception et de l'accessibilité dans les cycles de vie produit"
-      ],
-      "techStack": ["TypeScript", "Node.js", "React", "Python", "PostgreSQL", "Docker", "CI/CD"]
+      ]
     },
     "ciso": {
       "period": "Janvier 2025 – Présent",
