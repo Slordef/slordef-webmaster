@@ -2,6 +2,13 @@
 import { useI18n } from '../composables/useI18n'
 
 const { t } = useI18n()
+
+const experiences = [
+  { key: 'cto', items: 4, techStack: 7 },
+  { key: 'ciso', items: 3, techStack: 0 },
+  { key: 'headOfEngineering', items: 3, techStack: 0 },
+  { key: 'freelance', items: 5, techStack: 0 },
+]
 </script>
 
 <template>
@@ -9,36 +16,22 @@ const { t } = useI18n()
     <div class="container">
       <h2>{{ t('experience.title') }}</h2>
       <div class="timeline">
-        <div class="timeline-item">
+        <div v-for="exp in experiences" :key="exp.key" class="timeline-item">
           <div class="timeline-marker"></div>
           <div class="timeline-content">
-            <div class="period">{{ t('experience.resilio.period') }}</div>
-            <h3>{{ t('experience.resilio.position') }}</h3>
-            <h4>{{ t('experience.resilio.company') }}</h4>
+            <div class="period">{{ t(`experience.${exp.key}.period`) }}</div>
+            <h3>{{ t(`experience.${exp.key}.position`) }}</h3>
+            <h4>{{ t(`experience.${exp.key}.company`) }}</h4>
             <ul>
-              <li v-for="i in 5" :key="`resilio_item_${i}`">
-                {{ t(`experience.resilio.items.${i - 1}`) }}
+              <li v-for="i in exp.items" :key="`${exp.key}_item_${i}`">
+                {{ t(`experience.${exp.key}.items.${i - 1}`) }}
               </li>
             </ul>
-            <div class="tech-stack">
-              <span v-for="i in 7" :key="`resilio_stack_${i}`">
-                {{ t(`experience.resilio.techStack.${i - 1}`) }}
+            <div v-if="exp.techStack" class="tech-stack">
+              <span v-for="i in exp.techStack" :key="`${exp.key}_stack_${i}`">
+                {{ t(`experience.${exp.key}.techStack.${i - 1}`) }}
               </span>
             </div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="period">{{ t('experience.freelance.period') }}</div>
-            <h3>{{ t('experience.freelance.position') }}</h3>
-            <h4>{{ t('experience.freelance.company') }}</h4>
-            <ul>
-              <li v-for="i in 5" :key="`freelance_item_${i}`">
-                {{ t(`experience.freelance.items.${i - 1}`) }}
-              </li>
-            </ul>
           </div>
         </div>
       </div>

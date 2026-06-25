@@ -1,21 +1,40 @@
 {
   "title": "Expérience Professionnelle",
-  "resilio": {
-    "period": "2022 – Présent",
-    "position": "CTO & CISO",
+  "cto": {
+    "period": "Août 2022 – Juin 2026",
+    "position": "CTO",
     "company": "Resilio SA • Lausanne (Remote & Hybride)",
     "items": [
       "Direction de la stratégie technique et développement de deux produits SaaS d'analyse d'impact environnemental IT",
-      "Obtention de la certification ISO 27001 avec implémentation complète du SMSI",
       "Direction de l'équipe de développement : conception de processus, mentorat, décisions d'architecture",
       "Zéro temps d'arrêt critique grâce à un monitoring robuste et de la redondance",
       "Intégration de l'éco-conception et de l'accessibilité dans les cycles de vie produit"
     ],
     "techStack": ["TypeScript", "Node.js", "React", "Python", "PostgreSQL", "Docker", "CI/CD"]
   },
+  "ciso": {
+    "period": "Janvier 2025 – Présent",
+    "position": "CISO",
+    "company": "Resilio SA • Lausanne (Remote & Hybride)",
+    "items": [
+      "Obtention de la certification ISO 27001 avec implémentation complète du SMSI",
+      "Définition et pilotage de la politique de sécurité de l'information",
+      "Gestion des risques, audits de sécurité et mise en conformité"
+    ]
+  },
+  "headOfEngineering": {
+    "period": "Juin 2026 – Présent",
+    "position": "Head of Engineering",
+    "company": "Resilio SA • Lausanne (Remote & Hybride)",
+    "items": [
+      "Direction de l'organisation engineering et de la roadmap technique",
+      "Encadrement, recrutement et mentorat de l'équipe de développement",
+      "Standardisation des processus et de la qualité de livraison"
+    ]
+  },
   "freelance": {
     "period": "2009 – Présent",
-    "position": "Freelance – CTO/CISO as a Service | Développeur Fullstack",
+    "position": "Freelance – Security & Tech Advisor | Développeur Fullstack",
     "company": "Suisse (Remote)",
     "items": [
       "Audits de sécurité et d'architecture, renforcement d'infrastructure",

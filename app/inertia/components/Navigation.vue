@@ -54,7 +54,7 @@ onUnmounted(() => {
       <div class="nav-brand">
         <a href="#home" @click="handleLinkClick">
           <span class="brand-name">Slordef</span>
-          <span class="brand-title">CTO & CISO</span>
+          <span class="brand-title">Security & Tech Advisor</span>
         </a>
       </div>
 

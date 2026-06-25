@@ -36,28 +36,28 @@ defineProps<{
 
 <template>
   <Head>
-    <title>Slordef - CTO & CISO Freelance</title>
+    <title>Slordef - Security & Tech Advisor</title>
     <meta
       name="description"
-      content="CTO and CISO Freelance with 15+ years of experience. Architecture, Security, Technical Leadership. Based in Switzerland."
+      content="Security and technology advisor with 15+ years of experience. Architecture, Security, Technical Leadership. Based in Switzerland."
     />
-    <meta name="keywords" content="CTO, CISO, Freelance, Architecture, Security, Switzerland, ISO 27001" />
+    <meta name="keywords" content="Security, Architecture, Freelance, Switzerland, ISO 27001, Technical Leadership" />
     <meta name="author" content="Slordef" />
 
-    <meta property="og:title" content="Slordef - CTO & CISO Freelance" />
+    <meta property="og:title" content="Slordef - Security & Tech Advisor" />
     <meta
       property="og:description"
-      content="CTO and CISO Freelance with 15+ years of experience. Architecture, Security, Technical Leadership."
+      content="Security and technology advisor with 15+ years of experience. Architecture, Security, Technical Leadership."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://slordef-webmaster.ch" />
     <meta property="og:image" content="https://slordef-webmaster.ch/template/logo.png" />
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Slordef - CTO & CISO Freelance" />
+    <meta name="twitter:title" content="Slordef - Security & Tech Advisor" />
     <meta
       name="twitter:description"
-      content="CTO and CISO Freelance with 15+ years of experience. Architecture, Security, Technical Leadership."
+      content="Security and technology advisor with 15+ years of experience. Architecture, Security, Technical Leadership."
     />
 
     <link rel="canonical" href="https://slordef-webmaster.ch" />

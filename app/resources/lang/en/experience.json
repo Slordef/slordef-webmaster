@@ -1,21 +1,40 @@
 {
   "title": "Professional Experience",
-  "resilio": {
-    "period": "2022 – Present",
-    "position": "CTO & CISO",
+  "cto": {
+    "period": "August 2022 – June 2026",
+    "position": "CTO",
     "company": "Resilio SA • Lausanne (Remote & Hybrid)",
     "items": [
       "Led technical strategy and development of two SaaS products for IT environmental impact analysis",
-      "Achieved ISO 27001 certification with full ISMS implementation",
       "Directed development team: process design, mentoring, architecture decisions",
       "Ensured zero critical downtime through robust monitoring and redundancy",
       "Integrated eco-design and accessibility into product lifecycles"
     ],
     "techStack": ["TypeScript", "Node.js", "React", "Python", "PostgreSQL", "Docker", "CI/CD"]
   },
+  "ciso": {
+    "period": "January 2025 – Present",
+    "position": "CISO",
+    "company": "Resilio SA • Lausanne (Remote & Hybrid)",
+    "items": [
+      "Achieved ISO 27001 certification with full ISMS implementation",
+      "Defined and led the information security policy",
+      "Risk management, security audits, and compliance"
+    ]
+  },
+  "headOfEngineering": {
+    "period": "June 2026 – Present",
+    "position": "Head of Engineering",
+    "company": "Resilio SA • Lausanne (Remote & Hybrid)",
+    "items": [
+      "Leading the engineering organization and technical roadmap",
+      "Team leadership, hiring, and mentoring of the development team",
+      "Standardizing processes and delivery quality"
+    ]
+  },
   "freelance": {
     "period": "2009 – Present",
-    "position": "Freelance – CTO/CISO as a Service | Fullstack Developer",
+    "position": "Freelance – Security & Tech Advisor | Fullstack Developer",
     "company": "Switzerland (Remote)",
     "items": [
       "Security and architecture audits, infrastructure hardening",

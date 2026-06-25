@@ -16,6 +16,7 @@ const emit = defineEmits<{
 
 const editor = useEditor({
   content: props.modelValue,
+  immediatelyRender: false,
   extensions: [
     StarterKit,
     Link.configure({

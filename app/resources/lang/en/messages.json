@@ -1,6 +1,6 @@
 {
   "common": {
-    "siteTitle": "Slordef - CTO & CISO Freelance",
+    "siteTitle": "Slordef - Security & Tech Advisor",
     "readMore": "Read More",
     "viewProject": "View Project",
     "allRightsReserved": "All rights reserved",
@@ -18,13 +18,13 @@
   },
   "home": {
     "title": "Slordef",
-    "subtitle": "CTO & CISO Freelance",
+    "subtitle": "Security & Tech Advisor",
     "tagline": "Architecture • Security • Technical Leadership",
     "experience": "15+ years building scalable, secure systems"
   },
   "about": {
     "title": "About Me",
-    "intro": "CTO and CISO with 15+ years of experience in fullstack development, security, and technical leadership.",
+    "intro": "Security and technology advisor with 15+ years of experience in fullstack development, security, and technical leadership.",
     "description": "I help startups and tech-driven SMEs structure their architecture, secure their systems, and manage technical complexity efficiently and sustainably.",
     "approach": "My approach is pragmatic, measurable, and strategically aligned with business goals. I'm passionate about learning, building robust systems, and mentoring technical teams."
   },
@@ -71,7 +71,7 @@
     "title": "Engagement Models",
     "subtitle": "Flexible collaboration options tailored to your needs",
     "fractional": {
-      "title": "Fractional CTO/CISO",
+      "title": "Fractional Security & Tech Advisor",
       "description": "Regular strategic support for startups and growing companies",
       "items": [
         "1–2 days per week commitment",
@@ -103,22 +103,41 @@
   },
   "experience": {
     "title": "Professional Experience",
-    "resilio": {
-      "period": "2022 – Present",
-      "position": "CTO & CISO",
+    "cto": {
+      "period": "August 2022 – June 2026",
+      "position": "CTO",
       "company": "Resilio SA • Lausanne (Remote & Hybrid)",
       "items": [
         "Led technical strategy and development of two SaaS products for IT environmental impact analysis",
-        "Achieved ISO 27001 certification with full ISMS implementation",
         "Directed development team: process design, mentoring, architecture decisions",
         "Ensured zero critical downtime through robust monitoring and redundancy",
         "Integrated eco-design and accessibility into product lifecycles"
       ],
       "techStack": ["TypeScript", "Node.js", "React", "Python", "PostgreSQL", "Docker", "CI/CD"]
     },
+    "ciso": {
+      "period": "January 2025 – Present",
+      "position": "CISO",
+      "company": "Resilio SA • Lausanne (Remote & Hybrid)",
+      "items": [
+        "Achieved ISO 27001 certification with full ISMS implementation",
+        "Defined and led the information security policy",
+        "Risk management, security audits, and compliance"
+      ]
+    },
+    "headOfEngineering": {
+      "period": "June 2026 – Present",
+      "position": "Head of Engineering",
+      "company": "Resilio SA • Lausanne (Remote & Hybrid)",
+      "items": [
+        "Leading the engineering organization and technical roadmap",
+        "Team leadership, hiring, and mentoring of the development team",
+        "Standardizing processes and delivery quality"
+      ]
+    },
     "freelance": {
       "period": "2009 – Present",
-      "position": "Freelance – CTO/CISO as a Service | Fullstack Developer",
+      "position": "Freelance – Security & Tech Advisor | Fullstack Developer",
       "company": "Switzerland (Remote)",
       "items": [
         "Security and architecture audits, infrastructure hardening",
