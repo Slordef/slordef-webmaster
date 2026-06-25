@@ -97,7 +97,7 @@ export default class ProjectsController {
       .preload('translations')
       .firstOrFail()
 
-    return inertia.render('admin/ProjectForm', { project })
+    return inertia.render('admin/ProjectForm', { project: project.serialize() as Project })
   }
 
   async update({ params, request, response }: HttpContext) {
