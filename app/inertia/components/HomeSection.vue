@@ -6,128 +6,149 @@ const { t } = useI18n()
 
 <template>
   <section id="home">
-    <h1>{{ t('home.title') }}</h1>
-    <h2>{{ t('home.subtitle') }}</h2>
-    <h3>{{ t('home.tagline') }}</h3>
-    <p class="experience">{{ t('home.experience') }}</p>
-    <div class="socials">
-      <a
-        href="https://www.linkedin.com/in/maximilien-v-576625172/"
-        target="_blank"
-        rel="noreferrer"
-        title="LinkedIn"
-      >
-        <i class="fa-brands fa-linkedin" />
-      </a>
-      <a href="https://github.com/Slordef" target="_blank" rel="noreferrer" title="GitHub">
-        <i class="fa-brands fa-github" />
-      </a>
-      <a href="https://discord.gg/xx5kuQj5Qh" target="_blank" rel="noreferrer" title="Discord">
-        <i class="fa-brands fa-discord" />
-      </a>
-      <a
-        href="https://www.facebook.com/SlordefWebmaster/"
-        target="_blank"
-        rel="noreferrer"
-        title="Facebook"
-      >
-        <i class="fa-brands fa-facebook" />
-      </a>
+    <div class="hero-inner">
+      <div class="t-prompt">
+        <span class="user">slordef@arch</span><span class="sep">:</span><span class="path">~</span
+        ><span class="sym">$</span> whoami
+      </div>
+      <h1>{{ t('home.title') }}</h1>
+      <h2 class="t-accent t-glow">{{ t('home.subtitle') }}</h2>
+      <h3>{{ t('home.tagline') }}</h3>
+      <p class="experience">{{ t('home.experience') }}</p>
+
+      <div class="status">
+        <span class="t-prompt"
+          ><span class="user">slordef@arch</span><span class="sep">:</span><span class="path">~</span
+          ><span class="sym">$</span></span
+        >
+        ./status --check<span class="t-cursor"></span>
+      </div>
+
+      <div class="socials">
+        <a
+          href="https://www.linkedin.com/in/maximilien-v-576625172/"
+          target="_blank"
+          rel="noreferrer"
+          title="LinkedIn"
+        >
+          <i class="fa-brands fa-linkedin" />
+        </a>
+        <a href="https://github.com/Slordef" target="_blank" rel="noreferrer" title="GitHub">
+          <i class="fa-brands fa-github" />
+        </a>
+        <a href="https://discord.gg/xx5kuQj5Qh" target="_blank" rel="noreferrer" title="Discord">
+          <i class="fa-brands fa-discord" />
+        </a>
+        <a
+          href="https://www.facebook.com/SlordefWebmaster/"
+          target="_blank"
+          rel="noreferrer"
+          title="Facebook"
+        >
+          <i class="fa-brands fa-facebook" />
+        </a>
+      </div>
     </div>
-    <div class="arrow">
+
+    <a href="#about" class="arrow" aria-label="Scroll down">
       <i class="fa-solid fa-chevron-down" />
-    </div>
+    </a>
   </section>
 </template>
 
 <style scoped>
 #home {
-  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
-  height: 100vh;
-  text-align: center;
+  min-height: 100vh;
   position: relative;
+  padding: 100px 24px 80px;
 }
 
-#home h1,
-#home h2,
-#home h3,
-#home p {
-  margin: 0;
-  padding: 0;
-  color: #fff;
+.hero-inner {
+  max-width: var(--maxw);
+  width: 100%;
+  margin: 0 auto;
 }
 
 #home h1 {
-  font-size: 3em;
-  margin: 15px;
+  font-family: var(--mono);
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
   font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin: 14px 0 6px;
 }
 
 #home h2 {
-  font-size: 2em;
-  margin: 10px 0;
-  font-weight: 600;
+  font-family: var(--mono);
+  font-size: clamp(1.4rem, 3.4vw, 2.2rem);
+  font-weight: 700;
+  margin: 0 0 10px;
 }
 
 #home h3 {
-  font-size: 1.3em;
-  margin: 8px 0;
-  font-weight: 400;
-  color: #f4a460;
+  font-family: var(--mono);
+  font-size: clamp(0.95rem, 2.2vw, 1.25rem);
+  font-weight: 500;
+  color: var(--cyan);
+  margin: 0 0 18px;
+  letter-spacing: 0.01em;
 }
 
 #home .experience {
-  font-size: 1.1em;
-  margin: 15px 0;
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 300;
+  color: var(--muted);
+  font-size: 1.08rem;
+  max-width: 560px;
+  margin: 0 0 26px;
+}
+
+.status {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 30px;
 }
 
 #home .socials {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin-top: 2rem;
+  gap: 14px;
+  margin-top: 4px;
 }
 
 #home .socials a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 2px solid rgba(244, 164, 96, 0.4);
-  border-radius: 50%;
-  color: #9b7d68;
-  font-size: 1.6em;
-  transition: all 0.4s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 50px;
+  height: 50px;
+  background: var(--surface);
+  border: 1px solid var(--border-bright);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 1.4rem;
+  transition: all 0.25s ease;
 }
 
 #home .socials a:hover {
-  background: #f4a460;
-  color: #fff;
-  border-color: #f4a460;
-  transform: translateY(-8px) scale(1.15);
-  box-shadow: 0 10px 25px rgba(244, 164, 96, 0.5);
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: var(--glow);
 }
 
 #home .arrow {
   position: absolute;
-  bottom: 0;
+  bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 1rem;
-  font-size: 3rem;
-  color: #fff;
+  font-size: 2rem;
+  color: var(--accent);
   animation: arrow_animation 2s ease-in-out infinite;
 }
 
@@ -136,7 +157,7 @@ const { t } = useI18n()
     transform: translateX(-50%) translateY(0);
   }
   50% {
-    transform: translateX(-50%) translateY(1rem);
+    transform: translateX(-50%) translateY(0.8rem);
   }
   100% {
     transform: translateX(-50%) translateY(0);
@@ -144,30 +165,18 @@ const { t } = useI18n()
 }
 
 @media (max-width: 768px) {
-  #home h1 {
-    font-size: 2.5em;
-  }
-
-  #home h2 {
-    font-size: 1.6em;
-  }
-
-  #home h3 {
-    font-size: 1.1em;
+  #home {
+    padding: 88px 20px 70px;
   }
 
   #home .experience {
-    font-size: 1em;
+    font-size: 1rem;
   }
 
   #home .socials a {
-    width: 55px;
-    height: 55px;
-    font-size: 1.4em;
-  }
-
-  #home .arrow {
-    font-size: 2.5rem;
+    width: 46px;
+    height: 46px;
+    font-size: 1.25rem;
   }
 }
 </style>

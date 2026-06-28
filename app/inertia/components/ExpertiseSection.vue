@@ -4,21 +4,27 @@ import { useI18n } from '../composables/useI18n'
 const { t } = useI18n()
 
 const expertiseAreas = [
-  { key: 'architecture', icon: 'fa-solid fa-code', items: 4 },
-  { key: 'security', icon: 'fa-solid fa-shield-halved', items: 4 },
-  { key: 'leadership', icon: 'fa-solid fa-users', items: 4 },
-  { key: 'impact', icon: 'fa-solid fa-leaf', items: 4 },
+  { key: 'architecture', dir: 'architecture', icon: 'fa-solid fa-code', items: 4 },
+  { key: 'security', dir: 'security', icon: 'fa-solid fa-shield-halved', items: 4 },
+  { key: 'leadership', dir: 'governance', icon: 'fa-solid fa-users', items: 4 },
+  { key: 'impact', dir: 'impact', icon: 'fa-solid fa-leaf', items: 4 },
 ]
 </script>
 
 <template>
   <section id="expertise">
-    <div class="container">
-      <h2>{{ t('expertise.title') }}</h2>
+    <div class="t-container">
+      <div class="t-secthead">
+        <span class="user">slordef@arch</span>:<span class="path">~</span><span class="sym">$</span> ls
+        ./expertise
+      </div>
+      <h2 class="t-sectitle">// {{ t('expertise.title') }}</h2>
+
       <div class="expertise-grid">
         <div v-for="area in expertiseAreas" :key="area.key" class="expertise-card">
-          <div class="icon">
-            <i :class="area.icon"></i>
+          <div class="card-top">
+            <i :class="area.icon" class="icon"></i>
+            <span class="dir">{{ area.dir }}/</span>
           </div>
           <h3>{{ t(`expertise.${area.key}.title`) }}</h3>
           <ul>
@@ -34,108 +40,86 @@ const expertiseAreas = [
 
 <style scoped>
 #expertise {
-  background-color: #f1f0d8;
-  padding: 80px 20px;
-  color: #2c2416;
-}
-
-#expertise .container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-#expertise h2 {
-  font-size: 2.5em;
-  text-align: center;
-  margin-bottom: 60px;
-  color: #8b7049;
-  font-weight: 700;
+  padding: 70px 0;
 }
 
 .expertise-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  gap: 18px;
 }
 
 .expertise-card {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 24px;
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
 .expertise-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+  border-color: var(--border-bright);
+  border-left-color: var(--accent);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
 }
 
-.expertise-card .icon {
-  font-size: 3em;
-  color: #9b7d68;
-  margin-bottom: 20px;
-  text-align: center;
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.card-top .icon {
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+.card-top .dir {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--cyan);
 }
 
 .expertise-card h3 {
-  font-size: 1.4em;
-  color: #8b7049;
-  margin-bottom: 20px;
-  text-align: center;
+  font-family: var(--mono);
+  font-size: 1.1rem;
   font-weight: 600;
+  color: var(--white);
+  margin-bottom: 14px;
 }
 
 .expertise-card ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .expertise-card ul li {
-  padding: 8px 0;
-  color: #5a4a3a;
-  font-size: 1em;
-  line-height: 1.6;
+  padding: 6px 0 6px 22px;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.55;
   position: relative;
-  padding-left: 25px;
 }
 
 .expertise-card ul li::before {
   content: '\25b8';
   position: absolute;
   left: 0;
-  color: #9b7d68;
-  font-weight: bold;
+  color: var(--accent);
 }
 
 @media (max-width: 768px) {
   #expertise {
-    padding: 60px 20px;
-  }
-
-  #expertise h2 {
-    font-size: 2em;
-    margin-bottom: 40px;
+    padding: 56px 0;
   }
 
   .expertise-grid {
     grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .expertise-card {
-    padding: 25px;
-  }
-
-  .expertise-card .icon {
-    font-size: 2.5em;
-  }
-
-  .expertise-card h3 {
-    font-size: 1.25em;
   }
 }
 </style>

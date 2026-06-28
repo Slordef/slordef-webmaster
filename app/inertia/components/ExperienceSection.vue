@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from '../composables/useI18n'
+import TerminalWindow from './TerminalWindow.vue'
 
 const { t } = useI18n()
 
@@ -9,19 +10,34 @@ const experiences = [
   { key: 'cto', items: 4 },
   { key: 'freelance', items: 5 },
 ]
+
+// Active when the period is still ongoing ("Present" in EN, "Présent" in FR)
+function isActive(key: string): boolean {
+  const period = t(`experience.${key}.period`).toLowerCase()
+  return period.includes('present') || period.includes('présent')
+}
 </script>
 
 <template>
   <section id="experience">
-    <div class="container">
-      <h2>{{ t('experience.title') }}</h2>
-      <div class="timeline">
-        <div v-for="exp in experiences" :key="exp.key" class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="period">{{ t(`experience.${exp.key}.period`) }}</div>
-            <h3>{{ t(`experience.${exp.key}.position`) }}</h3>
-            <h4>{{ t(`experience.${exp.key}.company`) }}</h4>
+    <div class="t-container">
+      <div class="t-secthead">
+        <span class="user">slordef@arch</span>:<span class="path">~</span><span class="sym">$</span>
+        tail -f ./experience.log
+      </div>
+      <h2 class="t-sectitle">// {{ t('experience.title') }}</h2>
+
+      <TerminalWindow title="experience.log">
+        <div class="t-body log">
+          <div v-for="exp in experiences" :key="exp.key" class="log-entry">
+            <div class="log-head">
+              <span class="period">{{ t(`experience.${exp.key}.period`) }}</span>
+              <span class="position">{{ t(`experience.${exp.key}.position`) }}</span>
+              <span :class="['badge', { live: isActive(exp.key) }]">{{
+                isActive(exp.key) ? '● running' : 'exit 0'
+              }}</span>
+            </div>
+            <div class="company">{{ t(`experience.${exp.key}.company`) }}</div>
             <ul>
               <li v-for="i in exp.items" :key="`${exp.key}_item_${i}`">
                 {{ t(`experience.${exp.key}.items.${i - 1}`) }}
@@ -29,191 +45,105 @@ const experiences = [
             </ul>
           </div>
         </div>
-      </div>
+      </TerminalWindow>
     </div>
   </section>
 </template>
 
 <style scoped>
 #experience {
-  background-color: #f1f0d8;
-  padding: 80px 20px;
-  color: #2c2416;
+  padding: 70px 0;
 }
 
-#experience .container {
-  max-width: 1000px;
-  margin: 0 auto;
+.log {
+  font-family: var(--mono);
 }
 
-#experience h2 {
-  font-size: 2.5em;
-  text-align: center;
-  margin-bottom: 60px;
-  color: #8b7049;
-  font-weight: 700;
+.log-entry {
+  padding: 18px 0;
+  border-bottom: 1px dashed var(--border);
 }
 
-.timeline {
-  position: relative;
-  padding-left: 40px;
+.log-entry:first-child {
+  padding-top: 0;
 }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 15px;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: linear-gradient(to bottom, #9b7d68, #8b7049);
+.log-entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-.timeline-item {
-  position: relative;
-  margin-bottom: 50px;
-  padding-bottom: 30px;
-}
-
-.timeline-item:last-child {
-  margin-bottom: 0;
-}
-
-.timeline-marker {
-  position: absolute;
-  left: -32px;
-  top: 0;
-  width: 15px;
-  height: 15px;
-  background-color: #f4a460;
-  border: 3px solid #8b7049;
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px #f1f0d8;
-}
-
-.timeline-content {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.timeline-content:hover {
-  transform: translateX(5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+.log-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
 .period {
-  display: inline-block;
-  background-color: #9b7d68;
-  color: #fff;
-  padding: 6px 15px;
-  border-radius: 20px;
-  font-size: 0.9em;
+  color: var(--accent);
+  font-size: 0.9rem;
+  min-width: 130px;
+}
+
+.position {
+  color: var(--white);
   font-weight: 600;
-  margin-bottom: 15px;
+  font-size: 1.02rem;
 }
 
-#experience h3 {
-  font-size: 1.6em;
-  color: #8b7049;
-  margin: 10px 0;
-  font-weight: 700;
+.badge {
+  margin-left: auto;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border-bright);
+  color: var(--muted);
 }
 
-#experience h4 {
-  font-size: 1.1em;
-  color: #9b7d68;
-  margin: 5px 0 20px 0;
-  font-weight: 500;
-  font-style: italic;
+.badge.live {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
-#experience ul {
+.company {
+  color: var(--cyan);
+  font-size: 0.88rem;
+  margin: 6px 0 10px;
+}
+
+.log ul {
   list-style: none;
-  padding: 0;
-  margin: 20px 0;
 }
 
-#experience ul li {
-  padding: 8px 0;
-  color: #5a4a3a;
-  font-size: 1.05em;
-  line-height: 1.6;
+.log ul li {
+  font-family: var(--sans);
+  padding: 5px 0 5px 22px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
   position: relative;
-  padding-left: 25px;
 }
 
-#experience ul li::before {
+.log ul li::before {
   content: '\25b8';
   position: absolute;
   left: 0;
-  color: #9b7d68;
-  font-weight: bold;
-}
-
-.tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.tech-stack span {
-  background-color: #f4a460;
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 15px;
-  font-size: 0.85em;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-}
-
-.tech-stack span:hover {
-  background-color: #9b7d68;
+  color: var(--accent);
+  font-family: var(--mono);
 }
 
 @media (max-width: 768px) {
   #experience {
-    padding: 60px 20px;
+    padding: 56px 0;
   }
 
-  #experience h2 {
-    font-size: 2em;
-    margin-bottom: 40px;
+  .badge {
+    margin-left: 0;
   }
 
-  .timeline {
-    padding-left: 30px;
-  }
-
-  .timeline::before {
-    left: 8px;
-  }
-
-  .timeline-marker {
-    left: -25px;
-    width: 12px;
-    height: 12px;
-  }
-
-  .timeline-content {
-    padding: 20px;
-  }
-
-  #experience h3 {
-    font-size: 1.3em;
-  }
-
-  #experience h4 {
-    font-size: 1em;
-  }
-
-  #experience ul li {
-    font-size: 0.95em;
+  .period {
+    min-width: 110px;
   }
 }
 </style>

@@ -2,7 +2,7 @@
   "name": "slordef-webmaster",
   "private": true,
   "scripts": {
-    "dev": "./dev.sh serve",
+    "dev": "make serve",
     "build": "pnpm --filter app build"
   }
 }

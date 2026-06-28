@@ -6,14 +6,17 @@ const { t } = useI18n()
 
 <template>
   <section id="about">
-    <div class="container">
-      <h2>{{ t('about.title') }}</h2>
-      <div class="content">
-        <div class="value-proposition">
-          <p class="intro">{{ t('about.intro') }}</p>
-          <p class="description">{{ t('about.description') }}</p>
-          <p class="approach">{{ t('about.approach') }}</p>
-        </div>
+    <div class="t-container">
+      <div class="t-secthead">
+        <span class="user">slordef@arch</span>:<span class="path">~</span><span class="sym">$</span> cat
+        ./about.md
+      </div>
+      <h2 class="t-sectitle">// {{ t('about.title') }}</h2>
+
+      <div class="value-proposition">
+        <p class="intro">{{ t('about.intro') }}</p>
+        <p class="description">{{ t('about.description') }}</p>
+        <p class="approach">{{ t('about.approach') }}</p>
       </div>
     </div>
   </section>
@@ -21,76 +24,46 @@ const { t } = useI18n()
 
 <style scoped>
 #about {
-  background-color: #1a1a1a;
-  padding: 80px 20px;
-  color: #fff;
+  padding: 70px 0;
 }
 
-#about .container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-#about h2 {
-  font-size: 2.5em;
-  text-align: center;
-  margin-bottom: 50px;
-  color: #f4a460;
-  font-weight: 700;
-}
-
-#about .content {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-#about .value-proposition {
+.value-proposition {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  line-height: 1.8;
+  max-width: 760px;
 }
 
-#about .intro {
-  font-size: 1.3em;
-  color: #f4a460;
+.intro {
+  font-family: var(--mono);
+  font-size: 1.2rem;
+  color: var(--accent);
   font-weight: 500;
-  margin: 0;
 }
 
-#about .description {
-  font-size: 1.15em;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0;
+.description {
+  font-size: 1.12rem;
+  color: var(--white);
 }
 
-#about .approach {
-  font-size: 1.1em;
-  color: rgba(255, 255, 255, 0.8);
-  margin: 0;
-  font-style: italic;
+.approach {
+  font-size: 1.05rem;
+  color: var(--muted);
+  border-left: 2px solid var(--border-bright);
+  padding-left: 18px;
 }
 
 @media (max-width: 768px) {
   #about {
-    padding: 60px 20px;
+    padding: 56px 0;
   }
 
-  #about h2 {
-    font-size: 2em;
+  .intro {
+    font-size: 1.1rem;
   }
 
-  #about .intro {
-    font-size: 1.15em;
-  }
-
-  #about .description {
-    font-size: 1.05em;
-  }
-
-  #about .approach {
-    font-size: 1em;
+  .description {
+    font-size: 1.05rem;
   }
 }
 </style>

@@ -11,7 +11,7 @@ import posthogPlugin from './plugins/posthog'
 const appName = import.meta.env.VITE_APP_NAME || 'AdonisJS'
 
 createInertiaApp({
-  progress: { color: '#5468FF' },
+  progress: { color: '#4ade80' },
 
   title: (title) => `${title} - ${appName}`,
 
