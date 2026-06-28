@@ -51,10 +51,13 @@ onUnmounted(() => {
 <template>
   <nav :class="['navigation', { scrolled: isScrolled }]">
     <div class="nav-container">
+      <div class="t-dots nav-dots" aria-hidden="true">
+        <span class="t-dot min"></span><span class="t-dot max"></span><span class="t-dot close"></span>
+      </div>
+
       <div class="nav-brand">
         <a href="#home" @click="handleLinkClick">
-          <span class="brand-name">Slordef</span>
-          <span class="brand-title">Security & Tech Advisor</span>
+          <span class="brand-name">slordef<span class="at">@arch</span></span>
         </a>
       </div>
 
@@ -103,15 +106,14 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: rgba(26, 26, 26, 0.95);
+  background: rgba(13, 20, 22, 0.82);
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease;
 }
 
 .navigation.scrolled {
-  background-color: rgba(26, 26, 26, 0.98);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(13, 20, 22, 0.96);
 }
 
 .nav-container {
@@ -119,116 +121,105 @@ onUnmounted(() => {
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 70px;
+  gap: 18px;
+  height: 60px;
+}
+
+.nav-dots {
+  margin-right: 2px;
+  pointer-events: none;
 }
 
 .nav-brand a {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
-  text-decoration: none;
+  align-items: center;
   transition: opacity 0.3s ease;
 }
 
 .nav-brand a:hover {
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .brand-name {
-  font-size: 1.5em;
+  font-family: var(--mono);
   font-weight: 700;
-  color: #f4a460;
-  line-height: 1;
+  font-size: 1.05rem;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
-.brand-title {
-  font-size: 0.75em;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.7);
-  letter-spacing: 1px;
-  line-height: 1;
+.brand-name .at {
+  color: var(--accent);
 }
 
 .nav-links {
+  margin-left: auto;
   display: flex;
-  gap: 35px;
+  gap: 22px;
   align-items: center;
+  font-family: var(--mono);
+  font-size: 0.85rem;
 }
 
 .nav-link {
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: none;
-  font-size: 0.95em;
-  font-weight: 500;
+  color: var(--muted);
   position: relative;
-  transition: color 0.3s ease;
-  padding: 5px 0;
+  transition:
+    color 0.18s ease,
+    text-shadow 0.18s ease;
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #f4a460, #9b7d68);
-  transition: width 0.3s ease;
+.nav-link::before {
+  content: './';
+  color: var(--border-bright);
 }
 
 .nav-link:hover {
-  color: #f4a460;
-}
-
-.nav-link:hover::after {
-  width: 100%;
+  color: var(--accent);
+  text-shadow: var(--glow);
 }
 
 .nav-language-switcher {
   display: flex;
-  gap: 8px;
-  align-items: center;
+  border: 1px solid var(--border-bright);
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 0.74rem;
 }
 
-.nav-language-switcher .lang-btn {
+.lang-btn {
   background: transparent;
-  border: 2px solid rgba(244, 164, 96, 0.3);
-  color: rgba(255, 255, 255, 0.7);
-  padding: 6px 14px;
-  border-radius: 6px;
+  border: none;
+  padding: 5px 10px;
+  color: var(--muted);
   cursor: pointer;
-  font-size: 0.85em;
+  transition: all 0.18s ease;
+}
+
+.lang-btn:hover:not(:disabled) {
+  color: var(--accent);
+}
+
+.lang-btn.active {
+  background: var(--accent);
+  color: #06210f;
   font-weight: 600;
-  transition: all 0.3s ease;
-  min-width: 45px;
 }
 
-.nav-language-switcher .lang-btn:hover:not(:disabled) {
-  background: rgba(244, 164, 96, 0.15);
-  color: #f4a460;
-  border-color: rgba(244, 164, 96, 0.5);
-}
-
-.nav-language-switcher .lang-btn.active {
-  background: #f4a460;
-  color: #1a1a1a;
-  border-color: #f4a460;
-  font-weight: 700;
-}
-
-.nav-language-switcher .lang-btn:disabled {
+.lang-btn:disabled {
   cursor: default;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .mobile-menu-toggle {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 28px;
-  height: 22px;
+  width: 26px;
+  height: 20px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -238,14 +229,14 @@ onUnmounted(() => {
 
 .mobile-menu-toggle span {
   width: 100%;
-  height: 3px;
-  background-color: #f4a460;
+  height: 2px;
+  background-color: var(--accent);
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
 .mobile-menu-toggle.open span:nth-child(1) {
-  transform: translateY(9.5px) rotate(45deg);
+  transform: translateY(9px) rotate(45deg);
 }
 
 .mobile-menu-toggle.open span:nth-child(2) {
@@ -253,34 +244,17 @@ onUnmounted(() => {
 }
 
 .mobile-menu-toggle.open span:nth-child(3) {
-  transform: translateY(-9.5px) rotate(-45deg);
+  transform: translateY(-9px) rotate(-45deg);
 }
 
-@media (max-width: 768px) {
-  .nav-container {
-    height: 60px;
-  }
-
-  .brand-name {
-    font-size: 1.3em;
-  }
-
-  .brand-title {
-    font-size: 0.7em;
+@media (max-width: 820px) {
+  .nav-dots {
+    display: none;
   }
 
   .mobile-menu-toggle {
     display: flex;
-  }
-
-  .nav-language-switcher {
-    gap: 6px;
-  }
-
-  .nav-language-switcher .lang-btn {
-    padding: 5px 12px;
-    font-size: 0.8em;
-    min-width: 40px;
+    margin-left: auto;
   }
 
   .nav-links {
@@ -288,11 +262,12 @@ onUnmounted(() => {
     top: 60px;
     left: 0;
     right: 0;
-    background-color: rgba(26, 26, 26, 0.98);
-    backdrop-filter: blur(10px);
+    margin-left: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
     flex-direction: column;
     gap: 0;
-    padding: 20px 0;
+    padding: 8px 0;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     max-height: 0;
     overflow: hidden;
@@ -306,23 +281,18 @@ onUnmounted(() => {
   }
 
   .nav-link {
-    padding: 15px 30px;
+    padding: 14px 24px;
     width: 100%;
     text-align: center;
-    font-size: 1.05em;
-    border-bottom: 1px solid rgba(244, 164, 96, 0.1);
+    border-bottom: 1px solid var(--border);
   }
 
   .nav-link:last-child {
     border-bottom: none;
   }
 
-  .nav-link::after {
-    display: none;
-  }
-
   .nav-link:hover {
-    background-color: rgba(244, 164, 96, 0.1);
+    background-color: rgba(74, 222, 128, 0.08);
   }
 }
 </style>

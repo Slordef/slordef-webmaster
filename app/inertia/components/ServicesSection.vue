@@ -1,33 +1,46 @@
 <script setup lang="ts">
 import { useI18n } from '../composables/useI18n'
+import TerminalWindow from './TerminalWindow.vue'
 
 const { t } = useI18n()
 
 const services = [
-  { key: 'fractional', icon: 'fa-solid fa-clock', items: 4 },
-  { key: 'audits', icon: 'fa-solid fa-magnifying-glass-chart', items: 4 },
-  { key: 'missions', icon: 'fa-solid fa-rocket', items: 4 },
+  { key: 'fractional', file: 'cto.sh', icon: 'fa-solid fa-clock', items: 4 },
+  { key: 'audits', file: 'audit.sh', icon: 'fa-solid fa-magnifying-glass-chart', items: 4 },
+  { key: 'missions', file: 'missions.sh', icon: 'fa-solid fa-rocket', items: 4 },
 ]
 </script>
 
 <template>
   <section id="services">
-    <div class="container">
-      <h2>{{ t('services.title') }}</h2>
+    <div class="t-container">
+      <div class="t-secthead">
+        <span class="user">slordef@arch</span>:<span class="path">~</span><span class="sym">$</span>
+        ./services --list
+      </div>
+      <h2 class="t-sectitle">// {{ t('services.title') }}</h2>
       <p class="subtitle">{{ t('services.subtitle') }}</p>
+
       <div class="services-grid">
-        <div v-for="service in services" :key="service.key" class="service-card">
-          <div class="service-header">
-            <i :class="service.icon"></i>
-            <h3>{{ t(`services.${service.key}.title`) }}</h3>
+        <TerminalWindow
+          v-for="service in services"
+          :key="service.key"
+          :title="service.file"
+          class="service"
+        >
+          <div class="t-body">
+            <div class="service-header">
+              <i :class="service.icon"></i>
+              <h3>{{ t(`services.${service.key}.title`) }}</h3>
+            </div>
+            <p class="description">{{ t(`services.${service.key}.description`) }}</p>
+            <ul>
+              <li v-for="i in service.items" :key="`${service.key}_${i}`">
+                {{ t(`services.${service.key}.items.${i - 1}`) }}
+              </li>
+            </ul>
           </div>
-          <p class="description">{{ t(`services.${service.key}.description`) }}</p>
-          <ul>
-            <li v-for="i in service.items" :key="`${service.key}_${i}`">
-              {{ t(`services.${service.key}.items.${i - 1}`) }}
-            </li>
-          </ul>
-        </div>
+        </TerminalWindow>
       </div>
     </div>
   </section>
@@ -35,134 +48,87 @@ const services = [
 
 <style scoped>
 #services {
-  background-color: #2a2a2a;
-  padding: 80px 20px;
-  color: #fff;
+  padding: 70px 0;
 }
 
-#services .container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-#services h2 {
-  font-size: 2.5em;
-  text-align: center;
-  margin-bottom: 15px;
-  color: #f4a460;
-  font-weight: 700;
-}
-
-#services .subtitle {
-  text-align: center;
-  font-size: 1.2em;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 60px;
-  font-style: italic;
+.subtitle {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin: -24px 0 34px;
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  align-items: start;
 }
 
-.service-card {
-  background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
-  padding: 35px;
-  border-radius: 12px;
-  border: 2px solid #444;
-  transition: all 0.3s ease;
+.service {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
 }
 
-.service-card:hover {
-  border-color: #f4a460;
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(244, 164, 96, 0.2);
+.service:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-bright);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
 }
 
 .service-header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 14px;
 }
 
 .service-header i {
-  font-size: 3em;
-  color: #f4a460;
-  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: var(--accent);
 }
 
 .service-header h3 {
-  font-size: 1.5em;
-  color: #fff;
-  margin: 0;
+  font-family: var(--mono);
+  font-size: 1.05rem;
   font-weight: 600;
-  text-align: center;
+  color: var(--white);
 }
 
 .description {
-  text-align: center;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1.05em;
-  margin-bottom: 25px;
-  line-height: 1.6;
+  color: var(--muted);
+  font-size: 0.96rem;
+  margin-bottom: 18px;
 }
 
 #services ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 #services ul li {
-  padding: 10px 0;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1em;
+  padding: 6px 0 6px 24px;
+  color: var(--muted);
+  font-size: 0.94rem;
   line-height: 1.5;
   position: relative;
-  padding-left: 28px;
 }
 
 #services ul li::before {
   content: '\2713';
   position: absolute;
   left: 0;
-  color: #f4a460;
+  color: var(--accent);
   font-weight: bold;
-  font-size: 1.2em;
 }
 
 @media (max-width: 768px) {
   #services {
-    padding: 60px 20px;
-  }
-
-  #services h2 {
-    font-size: 2em;
-  }
-
-  #services .subtitle {
-    font-size: 1.05em;
-    margin-bottom: 40px;
+    padding: 56px 0;
   }
 
   .services-grid {
     grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .service-card {
-    padding: 28px;
-  }
-
-  .service-header i {
-    font-size: 2.5em;
-  }
-
-  .service-header h3 {
-    font-size: 1.3em;
   }
 }
 </style>

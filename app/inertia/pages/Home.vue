@@ -79,14 +79,8 @@ defineProps<{
 
 <style>
 html {
-  scroll-padding-top: 70px;
+  scroll-padding-top: 60px;
   scroll-behavior: smooth;
-}
-
-@media (max-width: 768px) {
-  html {
-    scroll-padding-top: 60px;
-  }
 }
 
 .main-wrapper {

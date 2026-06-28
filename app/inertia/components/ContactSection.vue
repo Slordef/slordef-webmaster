@@ -1,72 +1,81 @@
 <script setup lang="ts">
 import { useI18n } from '../composables/useI18n'
+import TerminalWindow from './TerminalWindow.vue'
 
 const { t } = useI18n()
+
+const currentYear = new Date().getFullYear()
 </script>
 
 <template>
   <section id="contact">
-    <div class="container">
-      <h2>{{ t('contact.title') }}</h2>
+    <div class="t-container">
+      <div class="t-secthead">
+        <span class="user">slordef@arch</span>:<span class="path">~</span><span class="sym">$</span>
+        ./connect
+      </div>
+      <h2 class="t-sectitle">// {{ t('contact.title') }}</h2>
       <p class="intro">{{ t('contact.intro') }}</p>
 
-      <div class="contact-methods">
-        <div class="contact-card">
-          <div class="icon">
-            <i class="fa-solid fa-envelope"></i>
+      <TerminalWindow title="slordef@arch: ~/connect" class="contact-window">
+        <div class="t-body">
+          <div class="c-cmd">
+            <span class="t-prompt"
+              ><span class="user">slordef@arch</span><span class="sep">:</span
+              ><span class="path">~</span><span class="sym">$</span></span
+            >
+            cat contact.json
           </div>
-          <h3>{{ t('contact.email') }}</h3>
-          <a href="mailto:contact@slordef-webmaster.ch">contact@slordef-webmaster.ch</a>
-        </div>
-
-        <div class="contact-card">
-          <div class="icon">
-            <i class="fa-solid fa-location-dot"></i>
+          <div class="c-row">
+            <span class="k">{{ t('contact.email') }}</span>
+            <a href="mailto:contact@slordef-webmaster.ch" class="v mail"
+              >contact@slordef-webmaster.ch</a
+            >
           </div>
-          <h3>{{ t('contact.location') }}</h3>
-          <p>{{ t('contact.locationValue') }}</p>
-        </div>
-
-        <div class="contact-card">
-          <div class="icon">
-            <i class="fa-solid fa-clock"></i>
+          <div class="c-row">
+            <span class="k">{{ t('contact.location') }}</span>
+            <span class="v">{{ t('contact.locationValue') }}</span>
           </div>
-          <h3>{{ t('contact.availability') }}</h3>
-          <p>{{ t('contact.availabilityValue') }}</p>
+          <div class="c-row">
+            <span class="k">{{ t('contact.availability') }}</span>
+            <span class="v avail"><span class="ping"></span>{{ t('contact.availabilityValue') }}</span>
+          </div>
         </div>
-      </div>
+      </TerminalWindow>
 
-      <div class="social-section">
+      <div class="connect">
         <h3>{{ t('contact.connectWithMe') }}</h3>
         <div class="socials">
           <a
             href="https://www.linkedin.com/in/maximilien-v-576625172/"
             target="_blank"
             rel="noreferrer"
-            title="LinkedIn"
           >
             <i class="fa-brands fa-linkedin" />
+            LinkedIn
           </a>
-          <a href="https://github.com/Slordef" target="_blank" rel="noreferrer" title="GitHub">
+          <a href="https://github.com/Slordef" target="_blank" rel="noreferrer">
             <i class="fa-brands fa-github" />
+            GitHub
           </a>
-          <a href="https://discord.gg/xx5kuQj5Qh" target="_blank" rel="noreferrer" title="Discord">
+          <a href="https://discord.gg/xx5kuQj5Qh" target="_blank" rel="noreferrer">
             <i class="fa-brands fa-discord" />
+            Discord
           </a>
-          <a
-            href="https://www.facebook.com/SlordefWebmaster/"
-            target="_blank"
-            rel="noreferrer"
-            title="Facebook"
-          >
+          <a href="https://www.facebook.com/SlordefWebmaster/" target="_blank" rel="noreferrer">
             <i class="fa-brands fa-facebook" />
+            Facebook
           </a>
         </div>
       </div>
 
       <footer class="footer">
-        <p>&copy; {{ new Date().getFullYear() }} Slordef. {{ t('common.allRightsReserved') }}</p>
-        <p class="tagline">{{ t('common.builtWithPassion') }}</p>
+        <p class="copy">
+          &copy; {{ currentYear }} slordef — <span class="t-accent">exit 0</span>
+        </p>
+        <p class="tagline">
+          {{ t('common.allRightsReserved') }} · {{ t('common.builtWithPassion') }}
+        </p>
       </footer>
     </div>
   </section>
@@ -74,189 +83,141 @@ const { t } = useI18n()
 
 <style scoped>
 #contact {
-  background-color: #1a1a1a;
-  padding: 80px 20px 40px 20px;
-  color: #fff;
+  padding: 70px 0 40px;
 }
 
-#contact .container {
-  max-width: 1000px;
-  margin: 0 auto;
+.intro {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 700px;
+  margin: -24px 0 34px;
 }
 
-#contact h2 {
-  font-size: 2.5em;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #f4a460;
-  font-weight: 700;
+.contact-window .t-body {
+  font-family: var(--mono);
+  font-size: 0.95rem;
 }
 
-#contact .intro {
-  text-align: center;
-  font-size: 1.15em;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 60px;
-  line-height: 1.7;
+.c-cmd {
+  color: var(--muted);
+  margin-bottom: 16px;
 }
 
-.contact-methods {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-bottom: 60px;
+.c-row {
+  display: flex;
+  gap: 12px;
+  padding: 7px 0;
+  flex-wrap: wrap;
 }
 
-.contact-card {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  border: 1px solid rgba(244, 164, 96, 0.2);
-  transition: all 0.3s ease;
+.c-row .k {
+  color: var(--muted);
+  min-width: 120px;
 }
 
-.contact-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: #f4a460;
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(244, 164, 96, 0.15);
+.c-row .k::after {
+  content: ':';
 }
 
-.contact-card .icon {
-  font-size: 2.5em;
-  color: #f4a460;
-  margin-bottom: 20px;
+.c-row .v {
+  color: var(--white);
 }
 
-.contact-card h3 {
-  font-size: 1.3em;
-  color: #fff;
-  margin: 15px 0;
-  font-weight: 600;
+.c-row .v.mail {
+  color: var(--accent);
+  text-shadow: var(--glow);
 }
 
-.contact-card p {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1em;
-  margin: 10px 0;
-}
-
-.contact-card a {
-  color: #f4a460;
-  text-decoration: none;
-  font-size: 1em;
-  transition: color 0.3s ease;
-  word-break: break-all;
-}
-
-.contact-card a:hover {
-  color: #fff;
+.c-row .v.mail:hover {
   text-decoration: underline;
 }
 
-.social-section {
-  text-align: center;
-  margin-bottom: 60px;
-  padding-top: 40px;
-  border-top: 1px solid rgba(244, 164, 96, 0.2);
+.avail {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
 }
 
-.social-section h3 {
-  font-size: 1.5em;
-  color: #f4a460;
-  margin-bottom: 30px;
-  font-weight: 600;
+.avail .ping {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: var(--glow);
+  animation: ping 1.6s ease-out infinite;
+}
+
+@keyframes ping {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 9px rgba(74, 222, 128, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+  }
+}
+
+.connect {
+  margin: 50px 0 40px;
+  padding-top: 36px;
+  border-top: 1px solid var(--border);
+}
+
+.connect h3 {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 20px;
 }
 
 .socials {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
+  gap: 12px;
 }
 
 .socials a {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(244, 164, 96, 0.3);
-  border-radius: 50%;
-  color: #9b7d68;
-  font-size: 1.8em;
-  transition: all 0.3s ease;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  padding: 10px 16px;
+  border: 1px solid var(--border-bright);
+  border-radius: 6px;
+  color: var(--muted);
+  transition: all 0.18s ease;
 }
 
 .socials a:hover {
-  background: #f4a460;
-  color: #fff;
-  border-color: #f4a460;
-  transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 8px 15px rgba(244, 164, 96, 0.3);
+  color: var(--accent);
+  border-color: var(--accent);
+  text-shadow: var(--glow);
 }
 
 .footer {
-  text-align: center;
-  padding-top: 40px;
-  border-top: 1px solid rgba(244, 164, 96, 0.2);
+  padding-top: 30px;
+  border-top: 1px solid var(--border);
 }
 
-.footer p {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.95em;
-  margin: 8px 0;
+.footer .copy {
+  font-family: var(--mono);
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .footer .tagline {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.85em;
-  font-style: italic;
+  color: var(--border-bright);
+  font-size: 0.82rem;
+  margin-top: 6px;
 }
 
 @media (max-width: 768px) {
   #contact {
-    padding: 60px 20px 30px 20px;
-  }
-
-  #contact h2 {
-    font-size: 2em;
-  }
-
-  #contact .intro {
-    font-size: 1.05em;
-    margin-bottom: 40px;
-  }
-
-  .contact-methods {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-bottom: 40px;
-  }
-
-  .contact-card {
-    padding: 25px;
-  }
-
-  .contact-card .icon {
-    font-size: 2em;
-  }
-
-  .contact-card h3 {
-    font-size: 1.2em;
-  }
-
-  .social-section {
-    margin-bottom: 40px;
-  }
-
-  .socials a {
-    width: 55px;
-    height: 55px;
-    font-size: 1.6em;
+    padding: 56px 0 30px;
   }
 }
 </style>
