@@ -14,12 +14,12 @@ export default class extends BaseSeeder {
         translations: {
           en: {
             title: 'Resilio Tech and Resilio DB',
-            description: `<p>I am currently <strong>Head of Engineering at Resilio SA</strong>, a company specialized in environmental impact assessment. We develop environmental impact assessment tools for businesses and individuals. We built a web application that helps companies calculate and reduce their footprint.</p>
+            description: `<p>I am currently <strong>VP of Engineering at Resilio SA</strong>, a company specialized in environmental impact assessment. We develop environmental impact assessment tools for businesses and individuals. We built a web application that helps companies calculate and reduce their footprint.</p>
 <p>We also developed a <strong>research application</strong> to analyze the environmental impact of equipment or to generate impact reports based on specific configurations.</p>`,
           },
           fr: {
             title: 'Resilio Tech et Resilio DB',
-            description: `<p>Je suis actuellement <strong>Head of Engineering chez Resilio SA</strong>, une société d'évaluation d'impact environnemental. Nous développons des outils d'évaluation d'impact environnemental pour les entreprises et les particuliers. Nous avons développé une application web qui permet aux entreprises de calculer leur empreinte et de la réduire.</p>
+            description: `<p>Je suis actuellement <strong>VP of Engineering chez Resilio SA</strong>, une société d'évaluation d'impact environnemental. Nous développons des outils d'évaluation d'impact environnemental pour les entreprises et les particuliers. Nous avons développé une application web qui permet aux entreprises de calculer leur empreinte et de la réduire.</p>
 <p>Nous avons également développé une <strong>application de recherche</strong> d'impact sur les équipements ou de génération de rapports d'impact environnemental sur des configuration d'équipement.</p>`,
           },
         },
