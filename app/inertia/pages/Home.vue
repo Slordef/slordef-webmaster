@@ -41,7 +41,10 @@ defineProps<{
       name="description"
       content="Security and technology advisor with 15+ years of experience. Architecture, Security, Technical Leadership. Based in Switzerland."
     />
-    <meta name="keywords" content="Security, Architecture, Freelance, Switzerland, ISO 27001, Technical Leadership" />
+    <meta
+      name="keywords"
+      content="Security, Architecture, Freelance, Switzerland, ISO 27001, Technical Leadership"
+    />
     <meta name="author" content="Slordef" />
 
     <meta property="og:title" content="Slordef - Security & Tech Advisor" />

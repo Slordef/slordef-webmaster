@@ -11,8 +11,8 @@ const { t } = useI18n()
       <TerminalWindow title="hire.sh" class="cta-window">
         <div class="t-body">
           <div class="t-prompt run-line">
-            <span class="user">slordef@arch</span><span class="sep">:</span><span class="path">~</span
-            ><span class="sym">$</span> ./hire --now
+            <span class="user">slordef@arch</span><span class="sep">:</span
+            ><span class="path">~</span><span class="sym">$</span> ./hire --now
           </div>
           <h2>{{ t('lastWords.title') }}</h2>
           <p class="cta-text">{{ t('lastWords.description') }}</p>

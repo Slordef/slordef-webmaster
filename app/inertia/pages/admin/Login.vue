@@ -88,7 +88,7 @@ const submit = () => {
   border-color: #f4a460;
 }
 
-button[type="submit"] {
+button[type='submit'] {
   width: 100%;
   padding: 12px;
   background: #f4a460;
@@ -101,11 +101,11 @@ button[type="submit"] {
   transition: background 0.2s;
 }
 
-button[type="submit"]:hover {
+button[type='submit']:hover {
   background: #e8934f;
 }
 
-button[type="submit"]:disabled {
+button[type='submit']:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }

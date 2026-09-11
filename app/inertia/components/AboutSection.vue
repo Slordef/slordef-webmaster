@@ -8,8 +8,8 @@ const { t } = useI18n()
   <section id="about">
     <div class="t-container">
       <div class="t-secthead">
-        <span class="user">slordef@arch</span>:<span class="path">~</span><span class="sym">$</span> cat
-        ./about.md
+        <span class="user">slordef@arch</span>:<span class="path">~</span
+        ><span class="sym">$</span> cat ./about.md
       </div>
       <h2 class="t-sectitle">// {{ t('about.title') }}</h2>
 
