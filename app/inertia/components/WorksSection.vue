@@ -32,8 +32,8 @@ const { locale } = useI18n()
 
 function getTranslation(project: Project) {
   return (
-    project.translations.find((t) => t.locale === locale.value) ||
-    project.translations.find((t) => t.locale === 'en')
+    project.translations.find((tr) => tr.locale === locale.value) ||
+    project.translations.find((tr) => tr.locale === 'en')
   )
 }
 
@@ -44,8 +44,8 @@ const workProjects = props.projects.filter((p) => p.category === 'work')
   <section id="my-works">
     <div class="t-container">
       <div class="t-secthead">
-        <span class="user">slordef@arch</span>:<span class="path">~</span><span class="sym">$</span> ls
-        ./work --selected
+        <span class="user">slordef@arch</span>:<span class="path">~</span
+        ><span class="sym">$</span> ls ./work --selected
       </div>
       <h2 class="t-sectitle">// {{ t('works.title') }}</h2>
       <p class="intro">{{ t('works.subtitle') }}</p>

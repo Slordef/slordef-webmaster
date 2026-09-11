@@ -1,2 +1,12 @@
 import { configApp } from '@adonisjs/eslint-config'
-export default configApp()
+import { vue } from '@adonisjs/eslint-config/vue'
+
+export default configApp(
+  { ignores: ['public/assets/**', '.adonisjs/**', '.pnpmfile.cjs'] },
+  ...vue,
+  {
+    name: 'Inertia frontend overrides',
+    files: ['inertia/**/*.{ts,vue}'],
+    rules: { '@unicorn/filename-case': 'off' },
+  }
+)

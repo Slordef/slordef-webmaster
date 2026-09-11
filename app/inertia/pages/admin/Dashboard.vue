@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Head, Link, useForm } from '@inertiajs/vue3'
+import { Head, useForm } from '@inertiajs/vue3'
+import { Link } from '@adonisjs/inertia/vue'
 
 defineProps<{
   stats: {
@@ -28,7 +29,7 @@ const logout = () => {
           </div>
         </div>
         <div class="nav-right">
-          <button @click="logout" class="logout-btn">Logout</button>
+          <button class="logout-btn" @click="logout">Logout</button>
         </div>
       </div>
     </nav>

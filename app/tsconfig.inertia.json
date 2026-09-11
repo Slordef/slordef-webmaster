@@ -5,5 +5,5 @@
     "outDir": "./build/inertia",
     "composite": true
   },
-  "include": ["./inertia/**/*", "./.adonisjs/**/*"]
+  "include": ["./inertia/**/*", "./.adonisjs/server/routes.d.ts"]
 }

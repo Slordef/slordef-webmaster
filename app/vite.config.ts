@@ -1,10 +1,16 @@
 import { defineConfig } from 'vite'
-import inertia from '@adonisjs/inertia/vite'
 import vue from '@vitejs/plugin-vue'
 import adonisjs from '@adonisjs/vite/client'
 
 export default defineConfig({
-  plugins: [inertia({ ssr: { enabled: true, entrypoint: 'inertia/ssr.ts' } }), vue(), adonisjs({ entrypoints: ['inertia/app.ts'], reload: ['resources/views/**/*.edge'] })],
+  plugins: [
+    vue(),
+    adonisjs({
+      entryPoints: ['inertia/app.ts'],
+      serverEntryPoints: ['inertia/ssr.ts'],
+      reload: ['resources/views/**/*.edge'],
+    }),
+  ],
 
   /**
    * Define aliases for importing modules from

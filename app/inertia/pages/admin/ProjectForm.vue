@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Head, Link, router } from '@inertiajs/vue3'
+import { Head, router } from '@inertiajs/vue3'
+import { Link } from '@adonisjs/inertia/vue'
 import { computed, ref } from 'vue'
 import TiptapEditor from '../../components/TiptapEditor.vue'
 
@@ -129,7 +130,7 @@ const submit = () => {
     <main class="admin-main">
       <h1 class="page-title">{{ isEditing ? 'Edit Project' : 'Create Project' }}</h1>
 
-      <form @submit.prevent="submit" class="form-card">
+      <form class="form-card" @submit.prevent="submit">
         <div class="form-grid">
           <div class="form-group">
             <label class="form-label">Slug</label>
@@ -144,13 +145,25 @@ const submit = () => {
           <div class="form-group full-width">
             <label class="form-label">Images</label>
             <div class="images-grid">
-              <div v-for="(img, index) in existingImages" :key="`existing-${index}`" class="image-item">
+              <div
+                v-for="(img, index) in existingImages"
+                :key="`existing-${index}`"
+                class="image-item"
+              >
                 <img :src="img" alt="Existing" class="image-preview" />
-                <button type="button" @click="removeExistingImage(index)" class="image-remove">&times;</button>
+                <button type="button" class="image-remove" @click="removeExistingImage(index)">
+                  &times;
+                </button>
               </div>
-              <div v-for="(preview, index) in newImagePreviews" :key="`new-${index}`" class="image-item new">
+              <div
+                v-for="(preview, index) in newImagePreviews"
+                :key="`new-${index}`"
+                class="image-item new"
+              >
                 <img :src="preview" alt="New" class="image-preview" />
-                <button type="button" @click="removeNewImage(index)" class="image-remove">&times;</button>
+                <button type="button" class="image-remove" @click="removeNewImage(index)">
+                  &times;
+                </button>
               </div>
             </div>
             <div class="file-input-wrapper">
@@ -158,8 +171,8 @@ const submit = () => {
                 type="file"
                 accept="image/jpeg,image/png,image/gif,image/webp"
                 multiple
-                @change="handleImagesChange"
                 class="form-input"
+                @change="handleImagesChange"
               />
               <p class="form-hint">JPG, PNG, GIF, WebP. Max 10MB each. Multiple files allowed.</p>
             </div>
@@ -179,7 +192,12 @@ const submit = () => {
           </div>
 
           <div class="form-group checkbox-group">
-            <input id="isPublished" v-model="form.isPublished" type="checkbox" class="form-checkbox" />
+            <input
+              id="isPublished"
+              v-model="form.isPublished"
+              type="checkbox"
+              class="form-checkbox"
+            />
             <label for="isPublished" class="checkbox-label">Published</label>
           </div>
         </div>
@@ -195,7 +213,10 @@ const submit = () => {
             </div>
             <div class="form-group">
               <label class="form-label">Description</label>
-              <TiptapEditor v-model="form.translations.en.description" placeholder="Write description in English..." />
+              <TiptapEditor
+                v-model="form.translations.en.description"
+                placeholder="Write description in English..."
+              />
             </div>
           </div>
 
