@@ -13,8 +13,8 @@ const projects = [
   <section id="side-projects">
     <div class="t-container">
       <div class="t-secthead">
-        <span class="user">slordef@arch</span>:<span class="path">~</span><span class="sym">$</span> ls
-        ./side-projects
+        <span class="user">slordef@arch</span>:<span class="path">~</span
+        ><span class="sym">$</span> ls ./side-projects
       </div>
       <h2 class="t-sectitle">// {{ t('sideProjects.title') }}</h2>
       <p class="subtitle">{{ t('sideProjects.subtitle') }}</p>

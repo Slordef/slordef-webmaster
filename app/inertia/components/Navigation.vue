@@ -52,7 +52,8 @@ onUnmounted(() => {
   <nav :class="['navigation', { scrolled: isScrolled }]">
     <div class="nav-container">
       <div class="t-dots nav-dots" aria-hidden="true">
-        <span class="t-dot min"></span><span class="t-dot max"></span><span class="t-dot close"></span>
+        <span class="t-dot min"></span><span class="t-dot max"></span
+        ><span class="t-dot close"></span>
       </div>
 
       <div class="nav-brand">
@@ -63,8 +64,8 @@ onUnmounted(() => {
 
       <button
         :class="['mobile-menu-toggle', { open: isMobileMenuOpen }]"
-        @click="isMobileMenuOpen = !isMobileMenuOpen"
         aria-label="Toggle menu"
+        @click="isMobileMenuOpen = !isMobileMenuOpen"
       >
         <span></span>
         <span></span>

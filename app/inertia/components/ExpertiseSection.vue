@@ -15,8 +15,8 @@ const expertiseAreas = [
   <section id="expertise">
     <div class="t-container">
       <div class="t-secthead">
-        <span class="user">slordef@arch</span>:<span class="path">~</span><span class="sym">$</span> ls
-        ./expertise
+        <span class="user">slordef@arch</span>:<span class="path">~</span
+        ><span class="sym">$</span> ls ./expertise
       </div>
       <h2 class="t-sectitle">// {{ t('expertise.title') }}</h2>
 

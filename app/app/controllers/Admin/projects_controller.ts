@@ -87,7 +87,6 @@ export default class ProjectsController {
       })
     }
 
-    // @ts-expect-error Route types not configured for v7
     return response.redirect().toRoute('admin.projects.index')
   }
 
@@ -112,7 +111,7 @@ export default class ProjectsController {
       extnames: ['jpg', 'jpeg', 'png', 'gif', 'webp'],
     })
 
-    let images: string | null | undefined = undefined
+    let images: string | null | undefined
 
     if (removeAllImages) {
       // Delete all existing images
@@ -165,7 +164,6 @@ export default class ProjectsController {
       }
     }
 
-    // @ts-expect-error Route types not configured for v7
     return response.redirect().toRoute('admin.projects.index')
   }
 
@@ -178,7 +176,6 @@ export default class ProjectsController {
 
     await project.delete()
 
-    // @ts-expect-error Route types not configured for v7
     return response.redirect().toRoute('admin.projects.index')
   }
 }

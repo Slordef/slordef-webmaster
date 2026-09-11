@@ -66,25 +66,25 @@ const setLink = () => {
     <div v-if="editor" class="toolbar">
       <button
         type="button"
-        @click="editor.chain().focus().toggleBold().run()"
         :class="['toolbar-btn', { active: editor.isActive('bold') }]"
         title="Bold"
+        @click="editor.chain().focus().toggleBold().run()"
       >
         <strong>B</strong>
       </button>
       <button
         type="button"
-        @click="editor.chain().focus().toggleItalic().run()"
         :class="['toolbar-btn', { active: editor.isActive('italic') }]"
         title="Italic"
+        @click="editor.chain().focus().toggleItalic().run()"
       >
         <em>I</em>
       </button>
       <button
         type="button"
-        @click="editor.chain().focus().toggleStrike().run()"
         :class="['toolbar-btn', { active: editor.isActive('strike') }]"
         title="Strikethrough"
+        @click="editor.chain().focus().toggleStrike().run()"
       >
         <s>S</s>
       </button>
@@ -93,17 +93,17 @@ const setLink = () => {
 
       <button
         type="button"
-        @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
         :class="['toolbar-btn', { active: editor.isActive('heading', { level: 2 }) }]"
         title="Heading 2"
+        @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
       >
         H2
       </button>
       <button
         type="button"
-        @click="editor.chain().focus().toggleHeading({ level: 3 }).run()"
         :class="['toolbar-btn', { active: editor.isActive('heading', { level: 3 }) }]"
         title="Heading 3"
+        @click="editor.chain().focus().toggleHeading({ level: 3 }).run()"
       >
         H3
       </button>
@@ -112,17 +112,17 @@ const setLink = () => {
 
       <button
         type="button"
-        @click="editor.chain().focus().toggleBulletList().run()"
         :class="['toolbar-btn', { active: editor.isActive('bulletList') }]"
         title="Bullet List"
+        @click="editor.chain().focus().toggleBulletList().run()"
       >
         &bull;
       </button>
       <button
         type="button"
-        @click="editor.chain().focus().toggleOrderedList().run()"
         :class="['toolbar-btn', { active: editor.isActive('orderedList') }]"
         title="Ordered List"
+        @click="editor.chain().focus().toggleOrderedList().run()"
       >
         1.
       </button>
@@ -131,18 +131,18 @@ const setLink = () => {
 
       <button
         type="button"
-        @click="setLink"
         :class="['toolbar-btn', { active: editor.isActive('link') }]"
         title="Link"
+        @click="setLink"
       >
         Link
       </button>
       <button
         v-if="editor.isActive('link')"
         type="button"
-        @click="editor.chain().focus().unsetLink().run()"
         class="toolbar-btn"
         title="Remove Link"
+        @click="editor.chain().focus().unsetLink().run()"
       >
         Unlink
       </button>
@@ -151,17 +151,17 @@ const setLink = () => {
 
       <button
         type="button"
-        @click="editor.chain().focus().toggleBlockquote().run()"
         :class="['toolbar-btn', { active: editor.isActive('blockquote') }]"
         title="Quote"
+        @click="editor.chain().focus().toggleBlockquote().run()"
       >
         &ldquo;
       </button>
       <button
         type="button"
-        @click="editor.chain().focus().setHorizontalRule().run()"
         class="toolbar-btn"
         title="Horizontal Rule"
+        @click="editor.chain().focus().setHorizontalRule().run()"
       >
         &mdash;
       </button>
