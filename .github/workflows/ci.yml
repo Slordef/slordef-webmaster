@@ -1,0 +1,71 @@
+name: CI
+on:
+  pull_request:
+  workflow_call:
+
+env:
+  TZ: UTC
+  PORT: 3333
+  HOST: localhost
+  LOG_LEVEL: info
+  APP_KEY: ci-placeholder-key-00000000000000
+  NODE_ENV: development
+  SESSION_DRIVER: cookie
+  POSTGRES_HOST: 127.0.0.1
+  POSTGRES_PORT: 5432
+  POSTGRES_USER: slordef
+  POSTGRES_PASSWORD: slordef
+  POSTGRES_DB: slordef
+
+defaults:
+  run:
+    working-directory: app
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: node ace codegen
+      - run: pnpm exec prettier --check .
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm build
+
+  tests:
+    runs-on: ubuntu-latest
+    env:
+      SESSION_DRIVER: memory
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: slordef
+          POSTGRES_PASSWORD: slordef
+          POSTGRES_DB: slordef
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
