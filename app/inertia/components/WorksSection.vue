@@ -68,11 +68,13 @@ const workProjects = props.projects.filter((p) => p.category === 'work')
             </div>
             <div class="project-info">
               <h3>{{ getTranslation(project)?.title }}</h3>
+              <!-- eslint-disable vue/no-v-html -->
               <div
                 v-if="getTranslation(project)?.description"
                 class="description"
                 v-html="getTranslation(project)?.description"
               ></div>
+              <!-- eslint-enable vue/no-v-html -->
               <a
                 v-if="project.url"
                 :href="project.url"
