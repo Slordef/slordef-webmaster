@@ -11,6 +11,8 @@ RUN pnpm install --frozen-lockfile
 
 COPY app ./app
 
+RUN cd app && env $(grep -vE '^#|^$|^APP_KEY' .env.example | xargs) APP_KEY=codegen-placeholder-key-000000 node ace codegen
+
 RUN pnpm --filter app build
 
 FROM node:24-alpine
