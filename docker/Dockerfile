@@ -1,4 +1,4 @@
-FROM node:24-alpine AS builder
+FROM node:25-alpine AS builder
 
 WORKDIR /workspace
 
@@ -13,7 +13,7 @@ COPY app ./app
 
 RUN pnpm --filter app build
 
-FROM node:24-alpine
+FROM node:25-alpine
 
 WORKDIR /app
 
