@@ -6,7 +6,12 @@ export default class extends BaseSchema {
   async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.integer('project_id').unsigned().references('id').inTable('projects').onDelete('CASCADE')
+      table
+        .integer('project_id')
+        .unsigned()
+        .references('id')
+        .inTable('projects')
+        .onDelete('CASCADE')
       table.enum('locale', ['en', 'fr']).notNullable()
       table.string('title').notNullable()
       table.text('description').nullable()

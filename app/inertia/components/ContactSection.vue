@@ -38,7 +38,9 @@ const currentYear = new Date().getFullYear()
           </div>
           <div class="c-row">
             <span class="k">{{ t('contact.availability') }}</span>
-            <span class="v avail"><span class="ping"></span>{{ t('contact.availabilityValue') }}</span>
+            <span class="v avail"
+              ><span class="ping"></span>{{ t('contact.availabilityValue') }}</span
+            >
           </div>
         </div>
       </TerminalWindow>
@@ -70,9 +72,7 @@ const currentYear = new Date().getFullYear()
       </div>
 
       <footer class="footer">
-        <p class="copy">
-          &copy; {{ currentYear }} slordef — <span class="t-accent">exit 0</span>
-        </p>
+        <p class="copy">&copy; {{ currentYear }} slordef — <span class="t-accent">exit 0</span></p>
         <p class="tagline">
           {{ t('common.allRightsReserved') }} · {{ t('common.builtWithPassion') }}
         </p>

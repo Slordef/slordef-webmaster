@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Head, Link, useForm, router } from '@inertiajs/vue3'
+import { Head, useForm, router } from '@inertiajs/vue3'
+import { Link } from '@adonisjs/inertia/vue'
 
 interface ProjectTranslation {
   id: number
@@ -57,7 +58,7 @@ const getTitle = (project: Project, locale: 'en' | 'fr' = 'en') => {
           </div>
         </div>
         <div class="nav-right">
-          <button @click="logout" class="logout-btn">Logout</button>
+          <button class="logout-btn" @click="logout">Logout</button>
         </div>
       </div>
     </nav>
@@ -65,9 +66,7 @@ const getTitle = (project: Project, locale: 'en' | 'fr' = 'en') => {
     <main class="admin-main">
       <div class="page-header">
         <h1 class="page-title">Projects</h1>
-        <Link href="/admin/projects/create" class="btn-primary">
-          Add Project
-        </Link>
+        <Link href="/admin/projects/create" class="btn-primary"> Add Project </Link>
       </div>
 
       <div class="table-container">
@@ -95,7 +94,7 @@ const getTitle = (project: Project, locale: 'en' | 'fr' = 'en') => {
                 <Link :href="`/admin/projects/${project.id}/edit`" class="action-link edit">
                   Edit
                 </Link>
-                <button @click="deleteProject(project.id)" class="action-link delete">
+                <button class="action-link delete" @click="deleteProject(project.id)">
                   Delete
                 </button>
               </td>

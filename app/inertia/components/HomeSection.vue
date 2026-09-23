@@ -18,8 +18,8 @@ const { t } = useI18n()
 
       <div class="status">
         <span class="t-prompt"
-          ><span class="user">slordef@arch</span><span class="sep">:</span><span class="path">~</span
-          ><span class="sym">$</span></span
+          ><span class="user">slordef@arch</span><span class="sep">:</span
+          ><span class="path">~</span><span class="sym">$</span></span
         >
         ./status --check<span class="t-cursor"></span>
       </div>
